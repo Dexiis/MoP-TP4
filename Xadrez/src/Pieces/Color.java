@@ -1,6 +1,6 @@
 package Pieces;
 
 public enum Color {
-    BRANCO,
-    PRETO,
+    WHITE,
+    BLACK,
 }

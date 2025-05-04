@@ -1,6 +1,7 @@
 package Pieces;
 
+import java.util.ArrayList;
+
 public interface MoveStraight {
-    void horizontalMove();
-    void verticalMove();
+    ArrayList<PiecePosition> availableStraightMoves(int currentColPosition, int currentRowPosition, Pieces[][] board);
 }

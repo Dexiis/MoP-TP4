@@ -1,6 +1,7 @@
 package Pieces;
 
+import java.util.ArrayList;
+
 public interface MoveDiagonaly {
-    void eastMove();
-    void westMove();
+    ArrayList<PiecePosition> availableDiagonalMoves(int currentColPosition, int currentRowPosition, Pieces[][] board);
 }

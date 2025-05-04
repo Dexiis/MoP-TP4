@@ -1,18 +1,20 @@
 package Pieces;
 
+import java.util.ArrayList;
+
 public abstract class Pieces {
     private String position;
     private Color color;
 
-    protected Pieces(Color color, String position) {
+    protected Pieces(Color color) {
         this.position = position;
     }
 
-    protected Pieces(Color color, String position, boolean hasMoved) {
+    protected Pieces(Color color, boolean hasMoved) {
         this.position = position;
     }
 
-    protected Pieces(Color color, String position, boolean check, boolean hasMoved) {
+    protected Pieces(Color color, boolean check, boolean hasMoved) {
         this.position = position;
     }
 
@@ -28,7 +30,5 @@ public abstract class Pieces {
         return color;
     }
 
-    public void setColor(Color color) {
-        this.color = color;
-    }
+    public abstract ArrayList<PiecePosition> checkForAvailableMoves(int currentRowPosition, int currentColPosition, Pieces[][] board);
 }
