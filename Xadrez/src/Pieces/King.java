@@ -77,6 +77,7 @@ public class King extends Pieces implements Castling {
             }
         }
 
+        availablePositions.addAll(castlingMove(currentColPosition, currentRowPosition, board));
         return availablePositions;
     }
 

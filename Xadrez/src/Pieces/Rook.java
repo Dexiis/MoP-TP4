@@ -6,7 +6,7 @@ public class Rook extends Pieces implements MoveStraight {
     private boolean hasMoved;
 
     protected Rook(Color color, boolean hasMoved) {
-        super(color, hasMoved);
+        super(color);
         this.hasMoved = hasMoved;
     }
 

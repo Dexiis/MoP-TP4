@@ -10,14 +10,6 @@ public abstract class Pieces {
         this.position = position;
     }
 
-    protected Pieces(Color color, boolean hasMoved) {
-        this.position = position;
-    }
-
-    protected Pieces(Color color, boolean check, boolean hasMoved) {
-        this.position = position;
-    }
-
     public String getPosition() {
         return this.position;
     }
