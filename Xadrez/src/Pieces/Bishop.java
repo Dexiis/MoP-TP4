@@ -13,8 +13,7 @@ public class Bishop extends Pieces implements MoveDiagonaly {
         ArrayList<PiecePosition> availablePositions = new ArrayList<>();
 
         Pieces currentPiece = board[currentRowPosition][currentColPosition];
-        int[][] diagonalDirections = {
-                {-1, -1}, // Cima-Esquerda
+        int[][] diagonalDirections = {{-1, -1}, // Cima-Esquerda
                 {-1, +1}, // Cima-Direita
                 {+1, -1}, // Baixo-Esquerda
                 {+1, +1}  // Baixo-Direita

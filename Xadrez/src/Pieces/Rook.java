@@ -23,8 +23,7 @@ public class Rook extends Pieces implements MoveStraight {
         ArrayList<PiecePosition> availablePositions = new ArrayList<>();
 
         Pieces currentPiece = board[currentRowPosition][currentColPosition];
-        int[][] straightDirections = {
-                {-1, 0}, // Para cima
+        int[][] straightDirections = {{-1, 0}, // Para cima
                 {+1, 0}, // Para baixo
                 {0, -1}, // Para a esquerda
                 {0, +1}  // Para a direita

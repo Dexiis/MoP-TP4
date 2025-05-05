@@ -4,7 +4,7 @@ public class PiecePosition {
     private int row;
     private int col;
 
-    PiecePosition(int row, int col) {
+    public PiecePosition(int row, int col) {
         this.row = row;
         this.col = col;
     }

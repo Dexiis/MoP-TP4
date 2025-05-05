@@ -9,7 +9,7 @@ public class King extends Pieces implements Castling {
     private boolean hasMoved;
 
     protected King(Color color, boolean check, boolean hasMoved) {
-        super(color, check, hasMoved);
+        super(color);
         this.check = check;
         this.hasMoved = hasMoved;
     }

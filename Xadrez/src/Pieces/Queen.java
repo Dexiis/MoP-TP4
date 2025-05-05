@@ -53,8 +53,7 @@ public class Queen extends Pieces implements MoveDiagonaly, MoveStraight {
         ArrayList<PiecePosition> availablePositions = new ArrayList<>();
 
         Pieces currentPiece = board[currentRowPosition][currentColPosition];
-        int[][] diagonalDirections = {
-                {-1, -1}, // Cima-Esquerda
+        int[][] diagonalDirections = {{-1, -1}, // Cima-Esquerda
                 {-1, +1}, // Cima-Direita
                 {+1, -1}, // Baixo-Esquerda
                 {+1, +1}  // Baixo-Direita

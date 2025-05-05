@@ -15,12 +15,10 @@ public class Pawn extends Pieces implements EnPassant {
         ArrayList<PiecePosition> availablePositions = new ArrayList<>();
 
         Pieces currentPiece = board[currentRowPosition][currentColPosition];
-        int[][] whitePawnCaptureMoves = {
-                {-1, -1}, {-1, +1}, // Ambas diagonais
+        int[][] whitePawnCaptureMoves = {{-1, -1}, {-1, +1}, // Ambas diagonais
         };
 
-        int[][] blackPawnCaptureMoves = {
-                {+1, -1}, {+1, +1}, // Ambas diagonais
+        int[][] blackPawnCaptureMoves = {{+1, -1}, {+1, +1}, // Ambas diagonais
         };
 
         if (this.getColor() == Color.WHITE) {

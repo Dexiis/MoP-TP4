@@ -12,8 +12,7 @@ public class Knight extends Pieces {
         ArrayList<PiecePosition> availablePositions = new ArrayList<>();
 
         Pieces currentPiece = board[currentRowPosition][currentColPosition];
-        int[][] knightMoves = {
-                {-2, -1}, {-2, +1}, // Dois para cima, um para os lados
+        int[][] knightMoves = {{-2, -1}, {-2, +1}, // Dois para cima, um para os lados
                 {-1, -2}, {-1, +2}, // Um para cima, dois para os lados
                 {+1, -2}, {+1, +2}, // Um para baixo, dois para os lados
                 {+2, -1}, {+2, +1}  // Dois para baixo, um para os lados
