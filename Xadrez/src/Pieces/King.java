@@ -109,4 +109,8 @@ public class King extends Pieces implements Castling {
 
         return availablePositions;
     }
+
+    public String toString() {
+        return this.getColor() == Color.WHITE ? "♔" : "♚";
+    }
 }

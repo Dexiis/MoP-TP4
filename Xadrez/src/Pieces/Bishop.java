@@ -52,4 +52,8 @@ public class Bishop extends Pieces implements MoveDiagonaly {
     public ArrayList<PiecePosition> checkForAvailableMoves(int currentRowPosition, int currentColPosition, Pieces[][] board) {
         return availableDiagonalMoves(currentColPosition, currentRowPosition, board);
     }
+
+    public String toString() {
+        return super.getColor().equals(Color.WHITE) ? "♗" : "♝";
+    }
 }

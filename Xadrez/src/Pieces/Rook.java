@@ -63,4 +63,8 @@ public class Rook extends Pieces implements MoveStraight {
     public ArrayList<PiecePosition> checkForAvailableMoves(int currentRowPosition, int currentColPosition, Pieces[][] board) {
         return availableStraightMoves(currentColPosition, currentRowPosition, board);
     }
+
+    public String toString() {
+        return super.getColor().equals(Color.WHITE) ? "♖" : "♜";
+    }
 }

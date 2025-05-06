@@ -59,20 +59,18 @@ public class Board {
     }
 
     public void printBoard() {
-        final int CELL_WIDTH = 5;
-
-        System.out.print("  ");
-        for (char colLabel = 'A'; colLabel <= 'H'; colLabel++) {
-            System.out.printf("%" + CELL_WIDTH + "s", " " + colLabel + " ");
+        System.out.print(" \u3000");
+        for (char colLabel = 'a'; colLabel <= 'h'; colLabel++) {
+            System.out.printf("  " + colLabel + "\u3000");
         }
         System.out.println();
 
         for (int row = 0; row < 8; row++) {
             System.out.print("  ");
             for (int col = 0; col < 8; col++) {
-                System.out.print("+----");
+                System.out.print("＋———");
             }
-            System.out.println("+");
+            System.out.println("＋");
 
             int chessRowLabel = 8 - row;
             System.out.print(chessRowLabel + " ");
@@ -81,22 +79,9 @@ public class Board {
                 Pieces currentPiece = board[row][col];
 
                 System.out.print("|");
-                String pieceRepresentation = "    ";
-
                 if (currentPiece != null) {
-                    String type = "";
-                    if (currentPiece instanceof Pawn) type = "P";
-                    else if (currentPiece instanceof Rook) type = "R";
-                    else if (currentPiece instanceof Knight) type = "K";
-                    else if (currentPiece instanceof Bishop) type = "B";
-                    else if (currentPiece instanceof Queen) type = "Q";
-                    else if (currentPiece instanceof King) type = "G";
-
-                    String color = (currentPiece.getColor() == Color.BLACK) ? "b" : "w";
-                    pieceRepresentation = " " + type + color + " ";
-                }
-
-                System.out.print(pieceRepresentation);
+                    System.out.print(" " + currentPiece + " ");
+                } else {System.out.print("  \u3000");}
 
             }
             System.out.println("|");
@@ -105,12 +90,13 @@ public class Board {
 
         System.out.print("  ");
         for (int col = 0; col < 8; col++) {
-            System.out.print("+----");
+            System.out.print("＋———");
         }
-        System.out.println("+");
+        System.out.println("＋");
 
-        for (char colLabel = 'A'; colLabel <= 'H'; colLabel++) {
-            System.out.printf("%" + CELL_WIDTH + "s", "" + colLabel + "");
+        System.out.print(" \u3000");
+        for (char colLabel = 'a'; colLabel <= 'h'; colLabel++) {
+            System.out.printf("  " + colLabel + "\u3000");
         }
         System.out.println();
     }

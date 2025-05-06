@@ -96,4 +96,8 @@ public class Queen extends Pieces implements MoveDiagonaly, MoveStraight {
 
         return availablePositions;
     }
+
+    public String toString() {
+        return super.getColor().equals(Color.WHITE) ? "♕" : "♛";
+    }
 }

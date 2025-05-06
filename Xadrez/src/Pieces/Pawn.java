@@ -77,4 +77,8 @@ public class Pawn extends Pieces implements EnPassant {
     public void availableEnPassantMoves(int currentColPosition, int currentRowPosition, Pieces[][] board) {
 
     }
+
+    public String toString() {
+        return super.getColor().equals(Color.WHITE) ? "♙" : "♟";
+    }
 }

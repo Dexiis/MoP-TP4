@@ -36,4 +36,8 @@ public class Knight extends Pieces {
 
         return availablePositions;
     }
+
+    public String toString() {
+        return super.getColor().equals(Color.WHITE) ? "♘" : "♞";
+    }
 }
