@@ -1,5 +1,7 @@
 package Pieces;
 
+import java.util.Objects;
+
 public class PiecePosition {
     private int row;
     private int col;
@@ -15,5 +17,19 @@ public class PiecePosition {
 
     public int getCol() {
         return this.col;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        PiecePosition that = (PiecePosition) o;
+        return row == that.row &&
+                col == that.col;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(row, col);
     }
 }

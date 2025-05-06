@@ -11,14 +11,23 @@ public class Pawn extends Pieces implements EnPassant {
     }
 
     @Override
+    public void setHasMoved() {
+        hasMoved = true;
+    }
+
+    @Override
     public ArrayList<PiecePosition> checkForAvailableMoves(int currentRowPosition, int currentColPosition, Pieces[][] board) {
         ArrayList<PiecePosition> availablePositions = new ArrayList<>();
 
         Pieces currentPiece = board[currentRowPosition][currentColPosition];
         int[][] whitePawnCaptureMoves = {{-1, -1}, {-1, +1}, // Ambas diagonais
         };
+        int[][] whitePawnMoves = {{-1, 0} // Baixo
+        };
 
         int[][] blackPawnCaptureMoves = {{+1, -1}, {+1, +1}, // Ambas diagonais
+        };
+        int[][] blackPawnMoves = {{+1, 0} // Cima
         };
 
         if (this.getColor() == Color.WHITE) {
@@ -38,13 +47,18 @@ public class Pawn extends Pieces implements EnPassant {
                 }
             }
 
-            if (!this.hasMoved) {
-                availablePositions.add(new PiecePosition(currentRowPosition - 1, currentColPosition));
-                availablePositions.add(new PiecePosition(currentRowPosition - 2, currentColPosition));
-            } else if (currentRowPosition - 1 >= 0) {
-                availablePositions.add(new PiecePosition(currentRowPosition - 1, currentColPosition));
-            }
+            for (int step = 1; step <= 2; step++) {
+                int targetRow = currentRowPosition - step;
 
+                if (targetRow >= 0 && targetRow < 8) {
+                    Pieces targetPiece = board[targetRow][currentColPosition];
+                    if (!this.hasMoved && targetPiece == null) {
+                        availablePositions.add(new PiecePosition(currentRowPosition - step, currentColPosition));
+                    } else if (targetPiece == null) {
+                        availablePositions.add(new PiecePosition(currentRowPosition - 1, currentColPosition));
+                    }
+                }
+            }
         } else {
             for (int[] move : blackPawnCaptureMoves) {
                 int rowOffset = move[0];
@@ -62,11 +76,17 @@ public class Pawn extends Pieces implements EnPassant {
                 }
             }
 
-            if (!this.hasMoved) {
-                availablePositions.add(new PiecePosition(currentRowPosition + 1, currentColPosition));
-                availablePositions.add(new PiecePosition(currentRowPosition + 2, currentColPosition));
-            } else if (currentRowPosition + 1 < 8) {
-                availablePositions.add(new PiecePosition(currentRowPosition + 1, currentColPosition));
+            for (int step = 1; step <= 2; step++) {
+                int targetRow = currentRowPosition + step;
+
+                if (targetRow >= 0 && targetRow < 8) {
+                    Pieces targetPiece = board[targetRow][currentColPosition];
+                    if (!this.hasMoved && targetPiece == null) {
+                        availablePositions.add(new PiecePosition(currentRowPosition + step, currentColPosition));
+                    } else if (targetPiece == null) {
+                        availablePositions.add(new PiecePosition(currentRowPosition + 1, currentColPosition));
+                    }
+                }
             }
         }
 

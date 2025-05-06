@@ -14,8 +14,9 @@ public class Rook extends Pieces implements MoveStraight {
         return this.hasMoved;
     }
 
-    public void setHasMoved(boolean hasMoved) {
-        this.hasMoved = hasMoved;
+    @Override
+    public void setHasMoved() {
+        hasMoved = true;
     }
 
     @Override

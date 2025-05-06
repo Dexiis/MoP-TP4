@@ -16,4 +16,8 @@ public abstract class Pieces {
     public abstract ArrayList<PiecePosition> checkForAvailableMoves(int currentRowPosition, int currentColPosition, Pieces[][] board);
 
     public abstract String toString();
+
+    public void setHasMoved() {
+
+    }
 }

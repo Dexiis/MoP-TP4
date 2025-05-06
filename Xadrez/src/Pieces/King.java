@@ -18,8 +18,9 @@ public class King extends Pieces implements Castling {
         return this.hasMoved;
     }
 
-    public void setHasMoved(boolean hasMoved) {
-        this.hasMoved = hasMoved;
+    @Override
+    public void setHasMoved() {
+        hasMoved = true;
     }
 
     public boolean getCheck() {

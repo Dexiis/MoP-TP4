@@ -24,6 +24,7 @@ public class ConsoleInterface {
             board.printBoard();
             System.out.println("Escolha a posição da peça que deseja mover: ");
             piece = input.nextLine();
+            board.possibleMoves(piece);
             System.out.println("Escolha o lugar para onde a deseja mover: ");
             targetedPosition = input.nextLine();
             board.movePiece(piece,targetedPosition);
