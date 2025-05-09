@@ -231,4 +231,37 @@ public class Board {
             } else System.out.println("Jogada Impossível");
         } else System.out.println("Jogada Desconhecida");
     }
+
+    public int checkForFinished(Color color) {
+        HashSet<PiecePosition> availableMoves = null;
+        for (int row = 0; row < 8; row++) {
+            for (int col = 0; col < 8; col++) {
+                Pieces currentPiece = board[row][col];
+                if (currentPiece != null) {
+                    if (currentPiece.getColor() == color) {
+                        availableMoves.addAll(checkForAvailableMoves(currentPiece));
+                    }
+                }
+            }
+        }
+
+        Pieces king = findTheKing(color);
+        if (availableMoves == null & !(((King) king).getCheck())) return 1;
+        else if (availableMoves == null & (((King) king).getCheck()) & color == Color.BLACK) return 2;
+        else if (availableMoves == null & (((King) king).getCheck()) & color == Color.WHITE) return 3;
+        else return 4;
+    }
+
+    private Pieces findTheKing(Color color) {
+        for (int row = 0; row < 8; row++) {
+            for (int col = 0; col < 8; col++) {
+                Pieces currentPiece = board[row][col];
+                if (currentPiece instanceof King) {
+                    if (currentPiece.getColor() == color) {
+                        return board[row][col];
+                    }
+                }
+            }
+        }
+    }
 }
