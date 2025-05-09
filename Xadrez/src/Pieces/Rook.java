@@ -62,7 +62,7 @@ public class Rook extends Pieces implements MoveStraight {
 
     @Override
     public ArrayList<PiecePosition> checkForAvailableMoves(int currentRowPosition, int currentColPosition, Pieces[][] board) {
-        return availableStraightMoves(currentColPosition, currentRowPosition, board);
+        return availableStraightMoves(currentRowPosition, currentColPosition, board);
     }
 
     public String toString() {
