@@ -1,6 +1,9 @@
 package chess.core;
 
-import chess.core.board.*;
+import chess.core.board.Board;
+import chess.core.board.Position;
+import chess.core.board.RulesMaster;
+import chess.core.board.Type;
 import chess.core.board.pieces.Piece;
 
 import java.util.List;
@@ -24,7 +27,7 @@ public class GameManager {
     }
 
     private static boolean isValidPosition(String position) {
-        return Pattern.compile("[A-Ha-h][1-8]").matcher(position).matches();
+        return Pattern.compile("[A-Ha-h][1-8]").matcher(position).matches(); // Simply using a regular expression does it.
     }
 
     /**
@@ -179,38 +182,38 @@ public class GameManager {
 
     private void placePieces() {
         // WHITE
-        this.board.setPiece(createPiece(Type.ROOK, Color.WHITE), 0, 0);
-        this.board.setPiece(createPiece(Type.KNIGHT, Color.WHITE), 0, 1);
-        this.board.setPiece(createPiece(Type.BISHOP, Color.WHITE), 0, 2);
-        this.board.setPiece(createPiece(Type.QUEEN, Color.WHITE), 0, 3);
-        this.board.setPiece(createPiece(Type.KING, Color.WHITE), 0, 4);
-        this.board.setPiece(createPiece(Type.BISHOP, Color.WHITE), 0, 5);
-        this.board.setPiece(createPiece(Type.KNIGHT, Color.WHITE), 0, 6);
-        this.board.setPiece(createPiece(Type.ROOK, Color.WHITE), 0, 7);
-        this.board.setPiece(createPiece(Type.PAWN, Color.WHITE), 1, 0);
-        this.board.setPiece(createPiece(Type.PAWN, Color.WHITE), 1, 1);
-        this.board.setPiece(createPiece(Type.PAWN, Color.WHITE), 1, 2);
-        this.board.setPiece(createPiece(Type.PAWN, Color.WHITE), 1, 3);
-        this.board.setPiece(createPiece(Type.PAWN, Color.WHITE), 1, 4);
-        this.board.setPiece(createPiece(Type.PAWN, Color.WHITE), 1, 5);
-        this.board.setPiece(createPiece(Type.PAWN, Color.WHITE), 1, 6);
-        this.board.setPiece(createPiece(Type.PAWN, Color.WHITE), 1, 7);
+        this.board.setPiece(createPiece(Type.ROOK, Color.BLACK), 0, 0);
+        this.board.setPiece(createPiece(Type.KNIGHT, Color.BLACK), 0, 1);
+        this.board.setPiece(createPiece(Type.BISHOP, Color.BLACK), 0, 2);
+        this.board.setPiece(createPiece(Type.QUEEN, Color.BLACK), 0, 3);
+        this.board.setPiece(createPiece(Type.KING, Color.BLACK), 0, 4);
+        this.board.setPiece(createPiece(Type.BISHOP, Color.BLACK), 0, 5);
+        this.board.setPiece(createPiece(Type.KNIGHT, Color.BLACK), 0, 6);
+        this.board.setPiece(createPiece(Type.ROOK, Color.BLACK), 0, 7);
+        this.board.setPiece(createPiece(Type.PAWN, Color.BLACK), 1, 0);
+        this.board.setPiece(createPiece(Type.PAWN, Color.BLACK), 1, 1);
+        this.board.setPiece(createPiece(Type.PAWN, Color.BLACK), 1, 2);
+        this.board.setPiece(createPiece(Type.PAWN, Color.BLACK), 1, 3);
+        this.board.setPiece(createPiece(Type.PAWN, Color.BLACK), 1, 4);
+        this.board.setPiece(createPiece(Type.PAWN, Color.BLACK), 1, 5);
+        this.board.setPiece(createPiece(Type.PAWN, Color.BLACK), 1, 6);
+        this.board.setPiece(createPiece(Type.PAWN, Color.BLACK), 1, 7);
         // BLACK
-        this.board.setPiece(createPiece(Type.ROOK, Color.BLACK), 7, 0);
-        this.board.setPiece(createPiece(Type.KNIGHT, Color.BLACK), 7, 1);
-        this.board.setPiece(createPiece(Type.BISHOP, Color.BLACK), 7, 2);
-        this.board.setPiece(createPiece(Type.QUEEN, Color.BLACK), 7, 3);
-        this.board.setPiece(createPiece(Type.KING, Color.BLACK), 7, 4);
-        this.board.setPiece(createPiece(Type.BISHOP, Color.BLACK), 7, 5);
-        this.board.setPiece(createPiece(Type.KNIGHT, Color.BLACK), 7, 6);
-        this.board.setPiece(createPiece(Type.ROOK, Color.BLACK), 7, 7);
-        this.board.setPiece(createPiece(Type.PAWN, Color.BLACK), 6, 0);
-        this.board.setPiece(createPiece(Type.PAWN, Color.BLACK), 6, 1);
-        this.board.setPiece(createPiece(Type.PAWN, Color.BLACK), 6, 2);
-        this.board.setPiece(createPiece(Type.PAWN, Color.BLACK), 6, 3);
-        this.board.setPiece(createPiece(Type.PAWN, Color.BLACK), 6, 4);
-        this.board.setPiece(createPiece(Type.PAWN, Color.BLACK), 6, 5);
-        this.board.setPiece(createPiece(Type.PAWN, Color.BLACK), 6, 6);
-        this.board.setPiece(createPiece(Type.PAWN, Color.BLACK), 6, 7);
+        this.board.setPiece(createPiece(Type.ROOK, Color.WHITE), 7, 0);
+        this.board.setPiece(createPiece(Type.KNIGHT, Color.WHITE), 7, 1);
+        this.board.setPiece(createPiece(Type.BISHOP, Color.WHITE), 7, 2);
+        this.board.setPiece(createPiece(Type.QUEEN, Color.WHITE), 7, 3);
+        this.board.setPiece(createPiece(Type.KING, Color.WHITE), 7, 4);
+        this.board.setPiece(createPiece(Type.BISHOP, Color.WHITE), 7, 5);
+        this.board.setPiece(createPiece(Type.KNIGHT, Color.WHITE), 7, 6);
+        this.board.setPiece(createPiece(Type.ROOK, Color.WHITE), 7, 7);
+        this.board.setPiece(createPiece(Type.PAWN, Color.WHITE), 6, 0);
+        this.board.setPiece(createPiece(Type.PAWN, Color.WHITE), 6, 1);
+        this.board.setPiece(createPiece(Type.PAWN, Color.WHITE), 6, 2);
+        this.board.setPiece(createPiece(Type.PAWN, Color.WHITE), 6, 3);
+        this.board.setPiece(createPiece(Type.PAWN, Color.WHITE), 6, 4);
+        this.board.setPiece(createPiece(Type.PAWN, Color.WHITE), 6, 5);
+        this.board.setPiece(createPiece(Type.PAWN, Color.WHITE), 6, 6);
+        this.board.setPiece(createPiece(Type.PAWN, Color.WHITE), 6, 7);
     }
 }

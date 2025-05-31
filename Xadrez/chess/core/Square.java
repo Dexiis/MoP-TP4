@@ -1,4 +1,4 @@
-package chess.core.board;
+package chess.core;
 
 import chess.core.board.pieces.Piece;
 
@@ -21,10 +21,21 @@ public class Square {
         this.piece = piece;
     }
 
+    /**
+     * Verifica se esta casa do tabuleiro está vazia.
+     * Uma casa é considerada vazia se não contiver nenhuma peça.
+     *
+     * @return {@code true} se a casa não contiver uma peça (ou seja, {@code piece} é nulo),
+     * {@code false} caso contrário.
+     */
     public boolean isEmpty() {
         return this.piece == null;
     }
 
+    /**
+     * Define esta casa do tabuleiro como vazia.
+     * Isso é feito ao remover qualquer peça que esteja atualmente nesta casa, definindo-a como nula.
+     */
     public void setEmpty() {
         this.piece = null;
     }

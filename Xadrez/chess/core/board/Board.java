@@ -1,6 +1,7 @@
 package chess.core.board;
 
 import chess.core.Color;
+import chess.core.Square;
 import chess.core.board.pieces.Piece;
 
 import java.util.Arrays;
@@ -8,8 +9,8 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * Implements a passive chess board.
- * By passive, means that this implementation doesn't provide piece move validation or any chess rule validation.
+ * Implementa um tabuleiro de xadrez passivo.
+ * Por passivo, significa que esta implementação não oferece validação de movimentos de peças nem qualquer validação de regras de xadrez.
  */
 public class Board {
     static Board instance = null;
@@ -31,14 +32,25 @@ public class Board {
         return new Position(row, col);
     }
 
+    /**
+     * Retorna uma lista de todas as posições ocupadas por peças (pretas e brancas) no tabuleiro.
+     *
+     * @return Uma lista de objetos {@link Position} das casas ocupadas.
+     */
     public List<Position> getAllPositionOccupied() {
         List<Position> allPieces = new LinkedList<>();
 
-        allPieces.addAll(this.getAllPositionOccupied(Color.WHITE));
         allPieces.addAll(this.getAllPositionOccupied(Color.BLACK));
+        allPieces.addAll(this.getAllPositionOccupied(Color.WHITE));
         return allPieces;
     }
 
+    /**
+     * Retorna uma lista de todas as posições ocupadas por peças de uma cor específica no tabuleiro.
+     *
+     * @param color A cor das peças a procurar (e.g., {@code Color.BLACK} ou {@code Color.WHITE}).
+     * @return Uma lista de objetos {@link Position} das casas ocupadas pela cor especificada.
+     */
     public List<Position> getAllPositionOccupied(Color color) {
         List<Position> allPieces = new LinkedList<>();
 
@@ -47,10 +59,25 @@ public class Board {
         return allPieces;
     }
 
+    /**
+     * Retorna uma cópia do tabuleiro de xadrez.
+     *
+     * Uma cópia (clone) é fornecida para garantir que o tabuleiro interno não seja modificado diretamente
+     * a partir do exterior.
+     *
+     * @return Uma cópia bidimensional (clone) do array de {@link Square} que representa o tabuleiro.
+     */
     public final Square[][] getBoard() {
         return this.board.clone();
     }
 
+    /**
+     * Retorna o tabuleiro como uma lista linear de casas ({@link Square}).
+     * As casas são adicionadas à lista linha a linha, da primeira à última linha.
+     *
+     * @return Uma {@link List} de objetos {@link Square} que representam todas as casas do tabuleiro
+     * numa sequência linear.
+     */
     public final List<Square> getBoardAsList() {
         List<Square> result = new LinkedList<>();
         for (byte row = 0; row < 8; row++)
@@ -58,10 +85,21 @@ public class Board {
         return result;
     }
 
+    /**
+     * Retorna a lista completa de movimentos realizados no jogo até ao momento.
+     *
+     * @return Uma {@link List} de objetos {@link Move} que representam o histórico de todos os movimentos.
+     */
     public List<Move> getHistoryMovesList() {
         return moves;
     }
 
+    /**
+     * Gera uma representação em texto do histórico de todos os movimentos realizados.
+     * Cada movimento é formatado para mostrar a peça, a posição inicial e a posição final.
+     *
+     * @return Uma {@code String} contendo o histórico de movimentos, com cada movimento numa nova linha.
+     */
     public String getHistoryMovesText() {
         StringBuilder result = new StringBuilder();
         for (Move move : moves)
@@ -69,6 +107,11 @@ public class Board {
         return result.toString();
     }
 
+    /**
+     * Retorna o último movimento realizado no jogo.
+     *
+     * @return O objeto {@link Move} que representa o último movimento, ou {@code null} se não houver movimentos.
+     */
     public Move getLastMove() {
         return !moves.isEmpty() ? moves.getLast() : null;
     }
@@ -97,6 +140,13 @@ public class Board {
         return getSquare(position.row, position.col);
     }
 
+    /**
+     * Realiza um movimento de "en passant" no tabuleiro.
+     * Move a peça da posição inicial para a final e remove a peça capturada "en passant".
+     *
+     * @param initPosition A posição inicial da peça que faz o movimento.
+     * @param endPosition A posição final da peça após o movimento.
+     */
     public void makeEnPassantMove(Position initPosition, Position endPosition) {
         this.makeSimpleMove(initPosition, endPosition);
 
@@ -105,11 +155,26 @@ public class Board {
         board[enPassantRow][endPosition.col].setEmpty();
     }
 
+    /**
+     * Realiza um movimento de promoção de peão no tabuleiro.
+     * A peça na posição final é substituída pela nova peça promovida.
+     *
+     * @param newPiece A nova {@link Piece} (e.g., Rainha, Torre) para a qual o peão é promovido.
+     * @param initPosition A posição inicial do peão antes da promoção.
+     * @param endPosition A posição final onde a nova peça será colocada.
+     */
     public void makePromotionMove(Piece newPiece, Position initPosition, Position endPosition) {
         board[endPosition.row][endPosition.col].setPiece(newPiece);
         board[initPosition.row][initPosition.col].setEmpty();
     }
 
+    /**
+     * Realiza um movimento simples de uma peça no tabuleiro.
+     * Move a peça da posição inicial para a final, atualiza o seu estado "hasMoved" e adiciona o movimento ao histórico.
+     *
+     * @param initPosition A posição inicial da peça.
+     * @param endPosition A posição final da peça.
+     */
     public void makeSimpleMove(Position initPosition, Position endPosition) {
         board[endPosition.row][endPosition.col].setPiece(board[initPosition.row][initPosition.col].getPiece()); // Don't care to tell the piece is captured, just remove it.
         board[initPosition.row][initPosition.col].setEmpty();
@@ -117,6 +182,9 @@ public class Board {
         moves.add(new Move(board[endPosition.row][endPosition.col].getPiece(), initPosition, endPosition));
     }
 
+    /**
+     * Reinicia o tabuleiro para a sua configuração inicial e limpa todo o histórico de movimentos.
+     */
     public void resetBoard() {
         this.initBoard();
         this.moves.clear();

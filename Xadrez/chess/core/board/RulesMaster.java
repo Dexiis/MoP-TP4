@@ -1,6 +1,7 @@
 package chess.core.board;
 
 import chess.core.Color;
+import chess.core.Square;
 import chess.core.board.pieces.*;
 
 import java.util.LinkedList;
@@ -23,15 +24,8 @@ public class RulesMaster {
         this.board = board;
     }
 
-    /**
-     * Verifica se a posição está dentro das dimensões do tabuleiro.
-     *
-     * @param row - Linha
-     * @param col - Coluna
-     * @return true se estiver dentro das dimensões do tabuleiro.
-     */
     private static boolean isValidPosition(int row, int col) {
-        final byte BOARD_SIZE = 8;
+        final byte BOARD_SIZE = 8; // If different, won't be chess. :-)
         return row >= 0 && row < BOARD_SIZE && col >= 0 && col < BOARD_SIZE;
     }
 
@@ -76,7 +70,7 @@ public class RulesMaster {
             case Knight _ -> knightValidMoves(position);
             case Bishop _ -> bishopValidMoves(position);
             case Queen _ -> queenValidMoves(position);
-            case King _ -> kingValidMoves(piece, position);
+            case King _ -> kingValidMoves(position);
             case null, default -> new LinkedList<>(); // Ou outra ação apropriada
         };
     }
@@ -106,7 +100,7 @@ public class RulesMaster {
      * @return true se alguma das peças do rei tiver sido capturada.
      */
     public boolean isFinished() {
-        return !isKingAlive(Color.WHITE) || !isKingAlive(Color.BLACK);
+        return !isKingAlive(Color.BLACK) || !isKingAlive(Color.WHITE);
     }
 
     /**
@@ -120,7 +114,7 @@ public class RulesMaster {
      * @return - verdadeiro se for um movimento de promoção válido
      */
     public boolean isPromotionMove(Piece piece, Position position) {
-        return piece instanceof Pawn && position.row == (piece.isWhite() ? 7 : 0);
+        return piece instanceof Pawn && position.row == (piece.isWhite() ? 0 : 7);
     }
 
     /**
@@ -129,7 +123,7 @@ public class RulesMaster {
      * @return A Cor do último rei em jogo ou nulo se o jogo não tiver terminado.
      */
     public Color whoWon() {
-        if (isFinished()) return isKingAlive(Color.BLACK) ? Color.BLACK : Color.WHITE;
+        if (isFinished()) return isKingAlive(Color.WHITE) ? Color.WHITE : Color.BLACK;
         return null;
     }
 
@@ -147,10 +141,6 @@ public class RulesMaster {
         return linearMovement(directions, row, col);
     }
 
-    /**
-     * Because pawn has different capture moves from the piece moves.
-     * This is different from the remaining pieces.
-     */
     private List<Position> getValidCaptureMoves(Position position) {
         return this.board.getPiece(position) instanceof Pawn ? pawnValidCaptureMovement(position) : getValidMoves(position);
     }
@@ -161,7 +151,7 @@ public class RulesMaster {
         return false;
     }
 
-    private List<Position> kingValidMoves(Piece piece, Position position) {
+    private List<Position> kingValidMoves(Position position) {
         List<Position> moves = new LinkedList<>();
         int row = position.row;
         int col = position.col;
@@ -186,55 +176,28 @@ public class RulesMaster {
             }
         }
 
+        Piece piece = board.getPiece(position);
         if (!piece.hasMoved()) {
-            boolean invalidMove;
 
             // KING SIDE CASTLING
             Piece targetPieceKingSide = (piece.getColor() == Color.WHITE) ? board.getPiece(7, 7) : board.getPiece(0, 7);
-            int[][] targetPositionsKingSide = (piece.getColor() == Color.WHITE) ? new int[][]{{5, 7}, {6, 7}} : new int[][]{{5, 0}, {6, 0}};
-            Position kingSideCastlingTarget = (piece.getColor() == Color.WHITE) ? new Position(6,7) : new Position(6,0);
+            Position[] targetPositionsKingSide = (piece.getColor() == Color.WHITE) ? new Position[]{new Position(7,5), new Position(7,6)} : new Position[]{new Position(0,5), new Position(0,6)};
+            Position kingSideCastlingTarget = (piece.getColor() == Color.WHITE) ? new Position(7,6) : new Position(0,6);
 
-            invalidMove = false;
-            for (int[] targetPosition : targetPositionsKingSide) {
-                int newRow = targetPosition[0];
-                int newCol = targetPosition[1];
-                if (isValidPosition(newRow, newCol)) {
-                    if (board.getPiece(newRow, newCol) != null) {
-                        invalidMove = true;
-                        break;
-                    }
-                } else {
-                    invalidMove = true;
-                    break;
-                }
-            }
-            if (targetPieceKingSide instanceof Rook && !invalidMove && !targetPieceKingSide.hasMoved()) {
+            if (targetPieceKingSide instanceof Rook && board.getSquare(targetPositionsKingSide[0]).isEmpty() && board.getSquare(targetPositionsKingSide[1]).isEmpty() && !targetPieceKingSide.hasMoved()) {
                 moves.add(kingSideCastlingTarget);
             }
 
             // QUEEN SIDE CASTLING
             Piece targetPieceQueenSide = (piece.getColor() == Color.WHITE) ? board.getPiece(7, 0) : board.getPiece(0,0);
-            int[][] targetPositionsQueenSide = (piece.getColor() == Color.WHITE) ? new int[][]{{3, 7}, {2, 7}, {1, 7}} : new int[][]{{3, 0}, {2, 0}, {1, 0}};
-            Position queenSideCastlingTarget = (piece.getColor() == Color.WHITE) ? new Position(1,7) : new Position(1,0);
+            Position[] targetPositionsQueenSide = (piece.getColor() == Color.WHITE) ? new Position[]{new Position(7,3), new Position(7,2), new Position(7,1)} : new Position[]{new Position(0,3), new Position(0,2), new Position(0,1)};
+            Position queenSideCastlingTarget = (piece.getColor() == Color.WHITE) ? new Position(7,2) : new Position(0,2);
 
-            invalidMove = false;
-            for (int[] targetPosition : targetPositionsQueenSide) {
-                int newRow = targetPosition[0];
-                int newCol = targetPosition[1];
-                if (isValidPosition(newRow, newCol)) {
-                    if (board.getPiece(newRow, newCol) != null) {
-                        invalidMove = true;
-                        break;
-                    }
-                } else {
-                    invalidMove = true;
-                    break;
-                }
-            }
-            if (targetPieceQueenSide instanceof Rook && !invalidMove && !targetPieceQueenSide.hasMoved()) {
+            if (targetPieceQueenSide instanceof Rook && board.getSquare(targetPositionsQueenSide[0]).isEmpty() && board.getSquare(targetPositionsQueenSide[1]).isEmpty() && !targetPieceQueenSide.hasMoved()) {
                 moves.add(queenSideCastlingTarget);
             }
         }
+
         return moves;
     }
 
@@ -294,7 +257,7 @@ public class RulesMaster {
         int col = position.col;
         Piece thisPiece = board.getPiece(row, col);
         List<Position> moves = new LinkedList<>();
-        int direction = thisPiece.isWhite() ? 1 : -1;    // Direção do movimento do peão ao longo das linhas (-1 para brancas, +1 para pretas)
+        int direction = thisPiece.isWhite() ? -1 : 1;    // Direção do movimento do peão ao longo das linhas (-1 para brancas, +1 para pretas)
         int[][] captureMovements = thisPiece.isWhite() ? new int[][]{{1, 1}, {1, -1}} : new int[][]{{-1, 1}, {-1, -1}}; // Movimento de captura para o En Passant
 
 
@@ -327,8 +290,8 @@ public class RulesMaster {
         Piece thisPiece = board.getPiece(row, col);
         List<Position> positions = new LinkedList<>();
 
-        int direction = thisPiece.isWhite() ? 1 : -1;    // Direção do movimento do peão ao longo das linhas (-1 para brancas, +1 para pretas)
-        int startRow = thisPiece.isWhite() ? 1 : 6;     // Linha inicial para peões desta cor
+        int direction = thisPiece.isWhite() ? -1 : 1;    // Direção do movimento do peão ao longo das linhas (-1 para brancas, +1 para pretas)
+        int startRow = thisPiece.isWhite() ? 6 : 1;     // Linha inicial para peões desta cor
 
 
         // 1. Movimento Simples para a Frente (uma casa)

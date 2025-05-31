@@ -10,6 +10,6 @@ public class Pawn extends Piece {
 
 
     public String toString() {
-        return super.getColor().equals(Color.WHITE) ? "♙" : "♟";
+        return super.getColor().equals(Color.BLACK) ? "♟" : "♙";
     }
 }

@@ -1,6 +1,6 @@
 package chess.userinterface;
 
-import chess.core.board.Square;
+import chess.core.Square;
 
 import java.util.List;
 
@@ -11,7 +11,6 @@ public class ConsoleInterface {
     /**
      * Obtém uma representação Unicode do tabuleiro.
      */
-
     public void showASCII(List<Square> board) {
         StringBuilder result = new StringBuilder();
 
@@ -20,7 +19,7 @@ public class ConsoleInterface {
 
         result.append("\n    ╔════════╤════════╤════════╤════════╤════════╤════════╤════════╤════════╗\n");
 
-        for (int row = 0; row < 8; row++) { // Rows
+        for (int row = 0; row < 8; row++) {
             result.append(8 - row).append("   ║");
             for (int col = 0; col < 8; col++) {
                 int itemNumber = (((row*8)) + (col));
