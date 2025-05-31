@@ -94,6 +94,31 @@ public class RulesMaster {
         return false;
     }
 
+    public boolean isCastlingMove(Position initPosition, Position endPosition) {
+        Piece piece = board.getPiece(initPosition);
+        if (piece instanceof King) {
+            if (!piece.hasMoved()) {
+                // KING SIDE CASTLING
+                Piece targetPieceKingSide = (piece.getColor() == Color.WHITE) ? board.getPiece(7, 7) : board.getPiece(0, 7);
+                Position[] targetPositionsKingSide = (piece.getColor() == Color.WHITE) ? new Position[]{new Position(7, 5), new Position(7, 6)} : new Position[]{new Position(0, 5), new Position(0, 6)};
+
+                if (targetPieceKingSide instanceof Rook && board.getSquare(targetPositionsKingSide[0]).isEmpty() && board.getSquare(targetPositionsKingSide[1]).isEmpty() && !targetPieceKingSide.hasMoved() && (endPosition.equals("H1") || endPosition.equals("H8"))) {
+                    return true;
+                }
+
+                // QUEEN SIDE CASTLING
+                Piece targetPieceQueenSide = (piece.getColor() == Color.WHITE) ? board.getPiece(7, 0) : board.getPiece(0, 0);
+                Position[] targetPositionsQueenSide = (piece.getColor() == Color.WHITE) ? new Position[]{new Position(7, 3), new Position(7, 2), new Position(7, 1)} : new Position[]{new Position(0, 3), new Position(0, 2), new Position(0, 1)};
+
+                if (targetPieceQueenSide instanceof Rook)
+                    if (board.getSquare(targetPositionsQueenSide[0]).isEmpty() && board.getSquare(targetPositionsQueenSide[1]).isEmpty())
+                        if (!targetPieceQueenSide.hasMoved())
+                            return endPosition.equals("C1") || endPosition.equals("C8");
+            }
+        }
+        return false;
+    }
+
     /**
      * Verifica se o jogo terminou ao confirmar se algum dos reis foi capturado.
      *
@@ -176,24 +201,24 @@ public class RulesMaster {
             }
         }
 
-        Piece piece = board.getPiece(position);
-        if (!piece.hasMoved()) {
+        Piece king = board.getPiece(position);
+        if (!king.hasMoved()) {
 
             // KING SIDE CASTLING
-            Piece targetPieceKingSide = (piece.getColor() == Color.WHITE) ? board.getPiece(7, 7) : board.getPiece(0, 7);
-            Position[] targetPositionsKingSide = (piece.getColor() == Color.WHITE) ? new Position[]{new Position(7,5), new Position(7,6)} : new Position[]{new Position(0,5), new Position(0,6)};
-            Position kingSideCastlingTarget = (piece.getColor() == Color.WHITE) ? new Position(7,6) : new Position(0,6);
+            Piece targetRookKingSide = (king.getColor() == Color.WHITE) ? board.getPiece(7, 7) : board.getPiece(0, 7);
+            Position[] targetPositionsKingSide = (king.getColor() == Color.WHITE) ? new Position[]{new Position(7, 5), new Position(7, 6)} : new Position[]{new Position(0, 5), new Position(0, 6)};
+            Position kingSideCastlingTarget = (king.getColor() == Color.WHITE) ? new Position(7, 6) : new Position(0, 6);
 
-            if (targetPieceKingSide instanceof Rook && board.getSquare(targetPositionsKingSide[0]).isEmpty() && board.getSquare(targetPositionsKingSide[1]).isEmpty() && !targetPieceKingSide.hasMoved()) {
+            if (targetRookKingSide instanceof Rook && board.getSquare(targetPositionsKingSide[0]).isEmpty() && board.getSquare(targetPositionsKingSide[1]).isEmpty() && !targetRookKingSide.hasMoved()) {
                 moves.add(kingSideCastlingTarget);
             }
 
             // QUEEN SIDE CASTLING
-            Piece targetPieceQueenSide = (piece.getColor() == Color.WHITE) ? board.getPiece(7, 0) : board.getPiece(0,0);
-            Position[] targetPositionsQueenSide = (piece.getColor() == Color.WHITE) ? new Position[]{new Position(7,3), new Position(7,2), new Position(7,1)} : new Position[]{new Position(0,3), new Position(0,2), new Position(0,1)};
-            Position queenSideCastlingTarget = (piece.getColor() == Color.WHITE) ? new Position(7,2) : new Position(0,2);
+            Piece targetQueenQueenSide = (king.getColor() == Color.WHITE) ? board.getPiece(7, 0) : board.getPiece(0, 0);
+            Position[] targetPositionsQueenSide = (king.getColor() == Color.WHITE) ? new Position[]{new Position(7, 3), new Position(7, 2), new Position(7, 1)} : new Position[]{new Position(0, 3), new Position(0, 2), new Position(0, 1)};
+            Position queenSideCastlingTarget = (king.getColor() == Color.WHITE) ? new Position(7, 2) : new Position(0, 2);
 
-            if (targetPieceQueenSide instanceof Rook && board.getSquare(targetPositionsQueenSide[0]).isEmpty() && board.getSquare(targetPositionsQueenSide[1]).isEmpty() && !targetPieceQueenSide.hasMoved()) {
+            if (targetQueenQueenSide instanceof Rook && board.getSquare(targetPositionsQueenSide[0]).isEmpty() && board.getSquare(targetPositionsQueenSide[1]).isEmpty() && !targetQueenQueenSide.hasMoved()) {
                 moves.add(queenSideCastlingTarget);
             }
         }

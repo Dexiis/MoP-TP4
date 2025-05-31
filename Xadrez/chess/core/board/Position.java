@@ -35,4 +35,8 @@ public class Position {
 
         return row == position.row && col == position.col;
     }
+
+    public final boolean equals(String string) {
+        return this.getPosition().equals(string);
+    }
 }

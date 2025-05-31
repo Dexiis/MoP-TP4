@@ -61,7 +61,7 @@ public class Board {
 
     /**
      * Retorna uma cópia do tabuleiro de xadrez.
-     *
+     * <p>
      * Uma cópia (clone) é fornecida para garantir que o tabuleiro interno não seja modificado diretamente
      * a partir do exterior.
      *
@@ -145,7 +145,7 @@ public class Board {
      * Move a peça da posição inicial para a final e remove a peça capturada "en passant".
      *
      * @param initPosition A posição inicial da peça que faz o movimento.
-     * @param endPosition A posição final da peça após o movimento.
+     * @param endPosition  A posição final da peça após o movimento.
      */
     public void makeEnPassantMove(Position initPosition, Position endPosition) {
         this.makeSimpleMove(initPosition, endPosition);
@@ -159,9 +159,9 @@ public class Board {
      * Realiza um movimento de promoção de peão no tabuleiro.
      * A peça na posição final é substituída pela nova peça promovida.
      *
-     * @param newPiece A nova {@link Piece} (e.g., Rainha, Torre) para a qual o peão é promovido.
+     * @param newPiece     A nova {@link Piece} (e.g., Rainha, Torre) para a qual o peão é promovido.
      * @param initPosition A posição inicial do peão antes da promoção.
-     * @param endPosition A posição final onde a nova peça será colocada.
+     * @param endPosition  A posição final onde a nova peça será colocada.
      */
     public void makePromotionMove(Piece newPiece, Position initPosition, Position endPosition) {
         board[endPosition.row][endPosition.col].setPiece(newPiece);
@@ -173,13 +173,39 @@ public class Board {
      * Move a peça da posição inicial para a final, atualiza o seu estado "hasMoved" e adiciona o movimento ao histórico.
      *
      * @param initPosition A posição inicial da peça.
-     * @param endPosition A posição final da peça.
+     * @param endPosition  A posição final da peça.
      */
     public void makeSimpleMove(Position initPosition, Position endPosition) {
-        board[endPosition.row][endPosition.col].setPiece(board[initPosition.row][initPosition.col].getPiece()); // Don't care to tell the piece is captured, just remove it.
+        board[endPosition.row][endPosition.col].setPiece(board[initPosition.row][initPosition.col].getPiece());
         board[initPosition.row][initPosition.col].setEmpty();
         board[endPosition.row][endPosition.col].getPiece().setHasMoved();
         moves.add(new Move(board[endPosition.row][endPosition.col].getPiece(), initPosition, endPosition));
+    }
+
+    public void makeCastlingMove(Position initPosition, Position endPosition) {
+        //Mexer o Rei
+        board[endPosition.row][endPosition.col].setPiece(board[initPosition.row][initPosition.col].getPiece());
+        board[initPosition.row][initPosition.col].setEmpty();
+        board[endPosition.row][endPosition.col].getPiece().setHasMoved();
+        moves.add(new Move(board[endPosition.row][endPosition.col].getPiece(), initPosition, endPosition));
+
+        //Mexer a torre
+        if (endPosition.equals("G1")) {
+            board[7][5].setPiece(board[7][7].getPiece());
+            board[7][7].setEmpty();
+        }
+        if (endPosition.equals("C1")) {
+            board[7][3].setPiece(board[7][0].getPiece());
+            board[7][0].setEmpty();
+        }
+        if (endPosition.equals("G8")) {
+            board[0][5].setPiece(board[0][7].getPiece());
+            board[0][7].setEmpty();
+        }
+        if (endPosition.equals("C8")) {
+            board[0][3].setPiece(board[0][0].getPiece());
+            board[0][0].setEmpty();
+        }
     }
 
     /**

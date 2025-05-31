@@ -104,6 +104,8 @@ public class GameManager {
         if (piece.isWhite() == this.isWhitePlay) {
             if (ruleMaster.isEnPassantMove(initPosition, endPosition))
                 this.isWhitePlay = this.makeEnPassantMove(piece, initPosition, endPosition) != this.isWhitePlay;
+            else if (ruleMaster.isCastlingMove(initPosition, endPosition))
+                this.isWhitePlay = this.makeCastlingMove(initPosition, endPosition) != this.isWhitePlay;
             else this.isWhitePlay = this.makeSimpleMove(piece, initPosition, endPosition) != this.isWhitePlay;
         }
     }
@@ -162,6 +164,18 @@ public class GameManager {
             return true;
         }
         return false;
+    }
+
+    private boolean makeCastlingMove(Position initPosition, Position endPosition) {
+        if (initPosition.equals("E1") && endPosition.equals("G1"))
+            this.board.makeCastlingMove(initPosition, endPosition);
+        if (initPosition.equals("E1") && endPosition.equals("C1"))
+            this.board.makeCastlingMove(initPosition, endPosition);
+        if (initPosition.equals("E8") && endPosition.equals("G8"))
+            this.board.makeCastlingMove(initPosition, endPosition);
+        if (initPosition.equals("E8") && endPosition.equals("C8"))
+            this.board.makeCastlingMove(initPosition, endPosition);
+        return true;
     }
 
     private boolean makePromotionMove(Piece newPiece, Position initPosition, Position endPosition) {
