@@ -11,6 +11,17 @@ public class Main {
         Scanner play = new Scanner(System.in);
         String initPosition, endPosition;
 
+        gameManager.play("G7","G6");
+        gameManager.play("G2","G3");
+        gameManager.play("F8","H6");
+        gameManager.play("F1","H3");
+        gameManager.play("G8","F6");
+        gameManager.play("G1","F3");
+        console.showASCII(gameManager.getBoard());
+        gameManager.play("E8","G8");
+        console.showASCII(gameManager.getBoard());
+        gameManager.play("E1","G1");
+
         while (!gameManager.isFinished()) {
             console.showASCII(gameManager.getBoard());
             System.out.print("Piece to move for ");

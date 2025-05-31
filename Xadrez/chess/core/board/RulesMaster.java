@@ -31,7 +31,7 @@ public class RulesMaster {
      * @return true se estiver dentro das dimensões do tabuleiro.
      */
     private static boolean isValidPosition(int row, int col) {
-        final byte BOARD_SIZE = 8; // If different, won't be chess. :-)
+        final byte BOARD_SIZE = 8;
         return row >= 0 && row < BOARD_SIZE && col >= 0 && col < BOARD_SIZE;
     }
 
@@ -76,7 +76,7 @@ public class RulesMaster {
             case Knight _ -> knightValidMoves(position);
             case Bishop _ -> bishopValidMoves(position);
             case Queen _ -> queenValidMoves(position);
-            case King _ -> kingValidMoves(position);
+            case King _ -> kingValidMoves(piece, position);
             case null, default -> new LinkedList<>(); // Ou outra ação apropriada
         };
     }
@@ -110,21 +110,12 @@ public class RulesMaster {
     }
 
     /**
-     * Verifica se uma posição, para uma dada cor, está comprometida.
-     *
-     * @return true se a posição estiver comprometida.
-     */
-    public boolean isPositionCompromised(Position position, Color color) {
-        return !compromisingMoves(position, color).isEmpty();
-    }
-
-    /**
      * Verifica se todas as condições estão presentes para ser um movimento de promoção.
      * 1 - A peça atual deve ser um Peão
      * 2 - A posição do Peão deve estar na respetiva linha de promoção
      * 3 - A nova peça deve ser da mesma cor da peça atual.
      *
-     * @param piece - peça a substituir
+     * @param piece    - peça a substituir
      * @param position - peça a ser substituída
      * @return - verdadeiro se for um movimento de promoção válido
      */
@@ -170,7 +161,7 @@ public class RulesMaster {
         return false;
     }
 
-    private List<Position> kingValidMoves(Position position) {
+    private List<Position> kingValidMoves(Piece piece, Position position) {
         List<Position> moves = new LinkedList<>();
         int row = position.row;
         int col = position.col;
@@ -195,57 +186,55 @@ public class RulesMaster {
             }
         }
 
-        // TODO Castling
-        // Lógica para o Roque (Castling)
-        // Isto é uma simplificação. Roque completo requer:
-        // 1. Rei e Torre não se moveram (geralmente guardado no objeto Board/GameState).
-        // 2. Casas entre Rei e Torre estão vazias.
-        // Assumimos que o 'Board' pode fornecer direitos de roque.
-        // A verificação de casas atacadas é mais complexa.
+        if (!piece.hasMoved()) {
+            boolean invalidMove;
 
-//        boolean isWhite = board.getPiece(row, col).isWhite();
-//        // Posições padrão: Rei branco em (7,4), Rei preto em (0,4) para tabuleiros 0-indexados
-//        // onde brancas começam "em baixo". Se as suas coordenadas forem diferentes, ajuste.
-//        // Se o seu setup é Rei branco na linha 6, col 4 (e.g. e1) e Rei preto linha 1, col 4 (e.g. e8)
-//        // Adapte currentPosition.row == (isWhite ? esperadoRowBranco : esperadoRowPreto)
-//
-//        // Roque do lado do Rei (curto)
-//        // Condições simplificadas: direitos de roque e caminho livre
-//        if (board.canCastleKingside(isWhite)) {
-//            // Verifica se as casas G e F (ou C e D para pretas) estão vazias
-//            // Coluna do rei é 'E'. Roque curto é para a coluna 'G'. Torre na 'H'.
-//            // Casas a verificar: F e G.
-//            if (board.getPiece(row, col + 1) == null && board.getPiece(row, col + 2) == null) {
-//                // Adicionalmente, estas casas e a casa de destino do rei (c+2)
-//                // não podem estar sob ataque. E o rei não pode estar em xeque.
-//                // Adicionamos o movimento do Rei para G (c+2). A Torre move-se automaticamente.
-//                // Esta é uma representação do movimento do Rei.
-//                // A lógica do jogo principal trataria o movimento da torre.
-//                // Para que `isSquareAttacked` funcione, precisaria de saber quem é o atacante.
-//                // Ex: if (!board.isSquareAttacked(r, c, !isWhite) &&
-//                //          !board.isSquareAttacked(r, c + 1, !isWhite) &&
-//                //          !board.isSquareAttacked(r, c + 2, !isWhite)) {
-//                moves.add(new Position(row, col + 2));
-//                // }
-//            }
-//        }
-//
-//        // Roque do lado da Rainha (longo)
-//        if (board.canCastleQueenside(isWhite)) {
-//            // Casas a verificar: D, C, B (a torre está em A). Rei move para C.
-//            if (board.getPiece(row, col - 1) == null &&
-//                    board.getPiece(row, col - 2) == null &&
-//                    board.getPiece(row, col - 3) == null) { // Casa B também deve estar vazia para a torre passar
-//                // Adicionalmente, estas casas (D, C) e a casa de destino do rei (c-2)
-//                // não podem estar sob ataque. E o rei não pode estar em xeque.
-//                // Ex: if (!board.isSquareAttacked(r, c, !isWhite) &&
-//                //          !board.isSquareAttacked(r, c - 1, !isWhite) &&
-//                //          !board.isSquareAttacked(r, c - 2, !isWhite)) {
-//                moves.add(new Position(row, col - 2));
-//                // }
-//            }
-//        }
+            // KING SIDE CASTLING
+            Piece targetPieceKingSide = (piece.getColor() == Color.WHITE) ? board.getPiece(7, 7) : board.getPiece(0, 7);
+            int[][] targetPositionsKingSide = (piece.getColor() == Color.WHITE) ? new int[][]{{5, 7}, {6, 7}} : new int[][]{{5, 0}, {6, 0}};
+            Position kingSideCastlingTarget = (piece.getColor() == Color.WHITE) ? new Position(6,7) : new Position(6,0);
 
+            invalidMove = false;
+            for (int[] targetPosition : targetPositionsKingSide) {
+                int newRow = targetPosition[0];
+                int newCol = targetPosition[1];
+                if (isValidPosition(newRow, newCol)) {
+                    if (board.getPiece(newRow, newCol) != null) {
+                        invalidMove = true;
+                        break;
+                    }
+                } else {
+                    invalidMove = true;
+                    break;
+                }
+            }
+            if (targetPieceKingSide instanceof Rook && !invalidMove && !targetPieceKingSide.hasMoved()) {
+                moves.add(kingSideCastlingTarget);
+            }
+
+            // QUEEN SIDE CASTLING
+            Piece targetPieceQueenSide = (piece.getColor() == Color.WHITE) ? board.getPiece(7, 0) : board.getPiece(0,0);
+            int[][] targetPositionsQueenSide = (piece.getColor() == Color.WHITE) ? new int[][]{{3, 7}, {2, 7}, {1, 7}} : new int[][]{{3, 0}, {2, 0}, {1, 0}};
+            Position queenSideCastlingTarget = (piece.getColor() == Color.WHITE) ? new Position(1,7) : new Position(1,0);
+
+            invalidMove = false;
+            for (int[] targetPosition : targetPositionsQueenSide) {
+                int newRow = targetPosition[0];
+                int newCol = targetPosition[1];
+                if (isValidPosition(newRow, newCol)) {
+                    if (board.getPiece(newRow, newCol) != null) {
+                        invalidMove = true;
+                        break;
+                    }
+                } else {
+                    invalidMove = true;
+                    break;
+                }
+            }
+            if (targetPieceQueenSide instanceof Rook && !invalidMove && !targetPieceQueenSide.hasMoved()) {
+                moves.add(queenSideCastlingTarget);
+            }
+        }
         return moves;
     }
 
