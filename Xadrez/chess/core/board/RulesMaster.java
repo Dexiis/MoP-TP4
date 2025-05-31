@@ -317,13 +317,10 @@ public class RulesMaster {
     private List<Position> queenValidMoves(Position position) {
         List<Position> moves = new LinkedList<>();
 
-        // The Queen moves like a Rook
-        // We pass the 'queen' to getRookMoves; this method will use your color and position
-        // to determine the moves as if it were a rook.
+        // A rainha também se move como uma torre
         moves.addAll(rookValidMoves(position));
 
-        // The Queen also moves like a Bishop
-        // Similarly, we pass the 'queen' to getBishopMoves.
+        // A rainha também se move como um bispo
         moves.addAll(bishopValidMoves(position));
 
         return moves;
