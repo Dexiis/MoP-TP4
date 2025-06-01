@@ -94,26 +94,23 @@ public class RulesMaster {
         return false;
     }
 
+    /**
+     * Verifica se um determinado movimento é um roque (castling).
+     * Este metodo valida se o movimento envolve um Rei que nunca se moveu,
+     * uma Torre também não movida, e se as casas entre eles estão vazias.
+     *
+     * @param initPosition A posição inicial do Rei.
+     * @param endPosition  A posição final do Rei.
+     * @return {@code true} se o movimento for um roque válido; {@code false} caso contrário.
+     */
     public boolean isCastlingMove(Position initPosition, Position endPosition) {
         Piece piece = board.getPiece(initPosition);
-        if (piece instanceof King) {
-            if (!piece.hasMoved()) {
-                // KING SIDE CASTLING
-                Piece targetPieceKingSide = (piece.getColor() == Color.WHITE) ? board.getPiece(7, 7) : board.getPiece(0, 7);
-                Position[] targetPositionsKingSide = (piece.getColor() == Color.WHITE) ? new Position[]{new Position(7, 5), new Position(7, 6)} : new Position[]{new Position(0, 5), new Position(0, 6)};
+        Position rookInitPosition = endPosition.isOnRightOf(initPosition) ? new Position(initPosition.row, 7) : new Position(initPosition.row, 0);
 
-                if (targetPieceKingSide instanceof Rook && board.getSquare(targetPositionsKingSide[0]).isEmpty() && board.getSquare(targetPositionsKingSide[1]).isEmpty() && !targetPieceKingSide.hasMoved() && (endPosition.equals("H1") || endPosition.equals("H8"))) {
-                    return true;
-                }
-
-                // QUEEN SIDE CASTLING
-                Piece targetPieceQueenSide = (piece.getColor() == Color.WHITE) ? board.getPiece(7, 0) : board.getPiece(0, 0);
-                Position[] targetPositionsQueenSide = (piece.getColor() == Color.WHITE) ? new Position[]{new Position(7, 3), new Position(7, 2), new Position(7, 1)} : new Position[]{new Position(0, 3), new Position(0, 2), new Position(0, 1)};
-
-                if (targetPieceQueenSide instanceof Rook)
-                    if (board.getSquare(targetPositionsQueenSide[0]).isEmpty() && board.getSquare(targetPositionsQueenSide[1]).isEmpty())
-                        if (!targetPieceQueenSide.hasMoved())
-                            return endPosition.equals("C1") || endPosition.equals("C8");
+        if (piece instanceof King && !piece.hasMoved()) {
+            if (board.areSquaresEmpty(initPosition, rookInitPosition)) { // Verifica se as casas entre o Rei e a Torre estão vazias.
+                Piece rookPiece = board.getPiece(rookInitPosition);
+                return rookPiece instanceof Rook && !rookPiece.hasMoved(); // Confirma se a peça na posição da Torre é realmente uma Torre e se nunca se moveu.
             }
         }
         return false;

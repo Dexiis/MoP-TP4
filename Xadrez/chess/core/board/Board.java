@@ -3,7 +3,9 @@ package chess.core.board;
 import chess.core.Color;
 import chess.core.Square;
 import chess.core.board.pieces.Piece;
+import chess.core.board.pieces.Rook;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
@@ -30,6 +32,21 @@ public class Board {
         int col = position.charAt(0) - 'A';
         int row = 8 - Character.getNumericValue(position.charAt(1));
         return new Position(row, col);
+    }
+
+    /**
+     * Obter posições das colunas - horizontal - entre duas posições.
+     *
+     * @param initPosition - Posição inicial. Tem de estar na mesma linha que a posição final
+     * @param endPosition  - Posição final. Tem de estar na mesma linha que a posição inicial
+     * @return - Lista de posições no meio.
+     */
+    public boolean areSquaresEmpty(Position initPosition, Position endPosition) {
+        boolean result = true;
+
+        for (Position position : getColumnPositionBetween(initPosition, endPosition))
+            result = result && getSquare(position).isEmpty();
+        return result;
     }
 
     /**
@@ -140,6 +157,29 @@ public class Board {
         return getSquare(position.row, position.col);
     }
 
+    public void makeCastlingMove(Position initPosition, Position endPosition) {
+        //Mexer o Rei
+        board[endPosition.row][endPosition.col].setPiece(board[initPosition.row][initPosition.col].getPiece());
+        board[initPosition.row][initPosition.col].setEmpty();
+        board[endPosition.row][endPosition.col].getPiece().setHasMoved();
+
+        // Casteling do lado do Rei
+        if (board[endPosition.row][endPosition.col + 1].getPiece() instanceof Rook) {
+            board[endPosition.row][endPosition.col - 1].setPiece(board[endPosition.row][endPosition.col + 1].getPiece());
+            board[endPosition.row][endPosition.col - 1].getPiece().setHasMoved();
+            board[endPosition.row][endPosition.col + 1].setEmpty();
+        }
+
+        // Casteling do lado da Rainha
+        if (board[endPosition.row][endPosition.col - 2].getPiece() instanceof Rook) {
+            board[endPosition.row][endPosition.col + 1].setPiece(board[endPosition.row][endPosition.col - 2].getPiece());
+            board[endPosition.row][endPosition.col + 1].getPiece().setHasMoved();
+            board[endPosition.row][endPosition.col - 2].setEmpty();
+        }
+
+        moves.add(new Move(board[endPosition.row][endPosition.col].getPiece(), initPosition, endPosition));
+    }
+
     /**
      * Realiza um movimento de "en passant" no tabuleiro.
      * Move a peça da posição inicial para a final e remove a peça capturada "en passant".
@@ -182,32 +222,6 @@ public class Board {
         moves.add(new Move(board[endPosition.row][endPosition.col].getPiece(), initPosition, endPosition));
     }
 
-    public void makeCastlingMove(Position initPosition, Position endPosition) {
-        //Mexer o Rei
-        board[endPosition.row][endPosition.col].setPiece(board[initPosition.row][initPosition.col].getPiece());
-        board[initPosition.row][initPosition.col].setEmpty();
-        board[endPosition.row][endPosition.col].getPiece().setHasMoved();
-        moves.add(new Move(board[endPosition.row][endPosition.col].getPiece(), initPosition, endPosition));
-
-        //Mexer a torre
-        if (endPosition.equals("G1")) {
-            board[7][5].setPiece(board[7][7].getPiece());
-            board[7][7].setEmpty();
-        }
-        if (endPosition.equals("C1")) {
-            board[7][3].setPiece(board[7][0].getPiece());
-            board[7][0].setEmpty();
-        }
-        if (endPosition.equals("G8")) {
-            board[0][5].setPiece(board[0][7].getPiece());
-            board[0][7].setEmpty();
-        }
-        if (endPosition.equals("C8")) {
-            board[0][3].setPiece(board[0][0].getPiece());
-            board[0][0].setEmpty();
-        }
-    }
-
     /**
      * Reinicia o tabuleiro para a sua configuração inicial e limpa todo o histórico de movimentos.
      */
@@ -235,6 +249,16 @@ public class Board {
             for (byte col = 0; col < 8; col++)
                 allPositions.add(new Position(row, col));
         return allPositions;
+    }
+
+    private List<Position> getColumnPositionBetween(Position initPosition, Position endPosition) {
+        ArrayList<Position> result = new ArrayList<>();
+        int startPosition = Math.min(initPosition.col, endPosition.col);
+        int finishPosition = Math.max(initPosition.col, endPosition.col);
+
+        for (int i = startPosition + 1; i < finishPosition; i++)
+            result.add(new Position(initPosition.row, i));
+        return result;
     }
 
     private void initBoard() {

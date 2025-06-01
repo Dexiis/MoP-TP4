@@ -13,13 +13,75 @@ public class Position {
         this.row = 8 - Character.getNumericValue(position.charAt(1));
     }
 
+    public final boolean equals(String string) {
+        return this.getPosition().equals(string);
+    }
+
     /**
-     * Retorna a posição como uma letra de A a H
+     * Retorna a posição à esquerda da posição dáda.
+     *
+     * @return - posição à esquerda (coluna - 1) ou null se coluna-1 < 0
+     */
+    public Position getLeftPosition() {
+        return col - 1 < 0 ? null : new Position(row, col - 1);
+    }
+
+    /**
+     * Retorna a posição como uma letra de "A" a "H".
      * e um número de 1 a 8.
      * Por exemplo, B6, H3, etc.
      */
     public String getPosition() {
         return "" + (char) ('A' + this.col) + (this.row + 1);
+    }
+
+    /**
+     * Retorna a posição à esquerda da posição dáda.
+     *
+     * @return - posição à esquerda (coluna - 1) ou null se coluna-1 < 0
+     */
+    public Position getRightPosition() {
+        return col + 1 > 7 ? null : new Position(row, col + 1);
+    }
+
+    /**
+     * Retorna true se a peça dáda está acima da peça dáda.
+     *
+     * @param position posição para comparar.
+     * @return true se esta peça está acima da peça dáda.
+     */
+    public boolean isAboveOf(Position position) {
+        return this.row < position.row;
+    }
+
+    /**
+     * Retorna true se a peça dáda está abaixo da peça dáda.
+     *
+     * @param position posição para comparar.
+     * @return true se esta peça está abaixo da peça dáda.
+     */
+    public boolean isBelowOf(Position position) {
+        return this.row > position.row;
+    }
+
+    /**
+     * Retorna true se a peça dáda está à esquerda da peça dáda.
+     *
+     * @param position posição para comparar.
+     * @return true se esta peça está à esquerda da peça dáda.
+     */
+    public boolean isOnLeftOf(Position position) {
+        return this.col < position.col;
+    }
+
+    /**
+     * Retorna true se a peça dáda está à direita da peça dáda.
+     *
+     * @param position posição para comparar.
+     * @return true se esta peça está à direita da peça dáda.
+     */
+    public boolean isOnRightOf(Position position) {
+        return this.col > position.col;
     }
 
     @Override
@@ -34,9 +96,5 @@ public class Position {
         if (!(o instanceof Position position)) return false;
 
         return row == position.row && col == position.col;
-    }
-
-    public final boolean equals(String string) {
-        return this.getPosition().equals(string);
     }
 }
