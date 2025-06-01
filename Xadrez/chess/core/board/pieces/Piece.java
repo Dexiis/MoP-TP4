@@ -2,7 +2,9 @@ package chess.core.board.pieces;
 
 import chess.core.Color;
 
-public abstract class Piece {
+import java.io.Serializable;
+
+public abstract class Piece implements Serializable {
     private final Color color;
     private boolean hasMoved = false;
 

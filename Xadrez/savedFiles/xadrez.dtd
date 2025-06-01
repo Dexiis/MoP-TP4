@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Tabuleiro SYSTEM "xadrez.dtd">
+
+        <!ELEMENT Tabuleiro (PecasPretas, PecasBrancas)>
+
+        <!ELEMENT PecasPretas (Peca*)>
+        <!ELEMENT PecasBrancas (Peca*)>
+
+        <!ELEMENT Peca (tipo, coluna, linha)>
+        <!ATTLIST Peca id ID #REQUIRED>
+
+        <!ELEMENT tipo (#PCDATA)>
+        <!ELEMENT coluna (#PCDATA)>
+        <!ELEMENT linha (#PCDATA)>

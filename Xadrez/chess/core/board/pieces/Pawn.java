@@ -2,7 +2,9 @@ package chess.core.board.pieces;
 
 import chess.core.Color;
 
-public class Pawn extends Piece {
+import java.io.Serializable;
+
+public class Pawn extends Piece implements Serializable {
 
     public Pawn(Color color) {
         super(color);

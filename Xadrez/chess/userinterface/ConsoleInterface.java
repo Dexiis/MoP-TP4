@@ -6,9 +6,10 @@ import chess.core.Square;
 import chess.core.board.Position;
 import chess.core.board.pieces.Piece;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class ConsoleInterface {
+public class ConsoleInterface implements Serializable {
     final GameManager gameManager = new GameManager();
 
     public ConsoleInterface() {
@@ -33,7 +34,7 @@ public class ConsoleInterface {
     }
 
     /**
-     * Aceita um movimento de peça alternadamente entre a cor Branca e Preta.
+     * Aceita um movimento de peça alternadamente entre branco e Preta.
      * Se for dado um movimento com a cor de peça errada, não faz nada.
      *
      * @param piece        - Peça a mover
@@ -45,7 +46,7 @@ public class ConsoleInterface {
     }
 
     /**
-     * Aceita um movimento de peça alternadamente entre a cor Branca e Preta.
+     * Aceita um movimento de peça alternadamente entre branco e Preta.
      * Se for dado um movimento com a cor de peça errada, não faz nada.
      *
      * @param initPosition - posição inicial da peça, como "A2" ou "B7", etc.
@@ -104,5 +105,14 @@ public class ConsoleInterface {
      */
     public Color whoWon() {
         return gameManager.whoWon();
+    }
+
+    /**
+     * Retorna o tabuleiro de xadrez como uma lista de casas.
+     *
+     * @return Uma lista de objetos {@link Square} do tabuleiro.
+     */
+    public List<Square> getBoard() {
+        return gameManager.getBoard();
     }
 }

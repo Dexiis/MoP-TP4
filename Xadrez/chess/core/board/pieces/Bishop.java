@@ -2,7 +2,9 @@ package chess.core.board.pieces;
 
 import chess.core.Color;
 
-public class Bishop extends Piece {
+import java.io.Serializable;
+
+public class Bishop extends Piece implements Serializable {
 
     public Bishop(Color color) {
         super(color);

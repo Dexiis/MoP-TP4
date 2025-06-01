@@ -2,7 +2,9 @@ package chess.core;
 
 import chess.core.board.pieces.Piece;
 
-public class Square {
+import java.io.Serializable;
+
+public class Square implements Serializable {
     private Piece piece;
 
     public Square() {

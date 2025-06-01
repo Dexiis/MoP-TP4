@@ -2,7 +2,9 @@ package chess.core.board;
 
 import chess.core.board.pieces.Piece;
 
-public class Move {
+import java.io.Serializable;
+
+public class Move implements Serializable {
     private final Piece piece;
     private final Position initPosition;
     private final Position endPosition;

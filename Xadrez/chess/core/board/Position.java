@@ -1,6 +1,8 @@
 package chess.core.board;
 
-public class Position {
+import java.io.Serializable;
+
+public class Position implements Serializable {
     public final int row, col;
 
     public Position(int row, int col) {

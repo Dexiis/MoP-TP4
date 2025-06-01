@@ -6,6 +6,7 @@ import chess.core.board.RulesMaster;
 import chess.core.board.Type;
 import chess.core.board.pieces.Piece;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.regex.Pattern;
 
@@ -14,7 +15,7 @@ import static chess.core.board.PieceFactory.createPiece;
 /**
  * Classe principal que implementa o padrão Facade
  */
-public class GameManager {
+public class GameManager implements Serializable {
     private final Board board;
     private final RulesMaster ruleMaster;
     private boolean isWhitePlay = true;

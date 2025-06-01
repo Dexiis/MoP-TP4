@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE Tabuleiro SYSTEM "xadrez.dtd">
+<Tabuleiro>
+    <PecasPretas>
+        <Peca id="0">
+            <tipo>Rook</tipo>
+            <coluna>A</coluna>
+            <linha>8</linha>
+        </Peca>
+        <Peca id="1">
+            <tipo>Knight</tipo>
+            <coluna>B</coluna>
+            <linha>8</linha>
+        </Peca>
+        <Peca id="2">
+            <tipo>Bishop</tipo>
+            <coluna>C</coluna>
+            <linha>8</linha>
+        </Peca>
+        <Peca id="3">
+            <tipo>Queen</tipo>
+            <coluna>D</coluna>
+            <linha>8</linha>
+        </Peca>
+        <Peca id="4">
+            <tipo>King</tipo>
+            <coluna>E</coluna>
+            <linha>8</linha>
+        </Peca>
+        <Peca id="5">
+            <tipo>Bishop</tipo>
+            <coluna>F</coluna>
+            <linha>8</linha>
+        </Peca>
+        <Peca id="6">
+            <tipo>Knight</tipo>
+            <coluna>G</coluna>
+            <linha>8</linha>
+        </Peca>
+        <Peca id="7">
+            <tipo>Rook</tipo>
+            <coluna>H</coluna>
+            <linha>8</linha>
+        </Peca>
+        <Peca id="8">
+            <tipo>Pawn</tipo>
+            <coluna>A</coluna>
+            <linha>7</linha>
+        </Peca>
+        <Peca id="9">
+            <tipo>Pawn</tipo>
+            <coluna>B</coluna>
+            <linha>7</linha>
+        </Peca>
+        <Peca id="10">
+            <tipo>Pawn</tipo>
+            <coluna>C</coluna>
+            <linha>7</linha>
+        </Peca>
+        <Peca id="11">
+            <tipo>Pawn</tipo>
+            <coluna>D</coluna>
+            <linha>7</linha>
+        </Peca>
+        <Peca id="12">
+            <tipo>Pawn</tipo>
+            <coluna>E</coluna>
+            <linha>7</linha>
+        </Peca>
+        <Peca id="13">
+            <tipo>Pawn</tipo>
+            <coluna>F</coluna>
+            <linha>7</linha>
+        </Peca>
+        <Peca id="14">
+            <tipo>Pawn</tipo>
+            <coluna>G</coluna>
+            <linha>7</linha>
+        </Peca>
+        <Peca id="15">
+            <tipo>Pawn</tipo>
+            <coluna>H</coluna>
+            <linha>7</linha>
+        </Peca>
+    </PecasPretas>
+    <PecasBrancas>
+        <Peca id="16">
+            <tipo>Rook</tipo>
+            <coluna>A</coluna>
+            <linha>2</linha>
+        </Peca>
+        <Peca id="17">
+            <tipo>Knight</tipo>
+            <coluna>B</coluna>
+            <linha>2</linha>
+        </Peca>
+        <Peca id="18">
+            <tipo>Bishop</tipo>
+            <coluna>C</coluna>
+            <linha>2</linha>
+        </Peca>
+        <Peca id="19">
+            <tipo>Queen</tipo>
+            <coluna>D</coluna>
+            <linha>2</linha>
+        </Peca>
+        <Peca id="20">
+            <tipo>King</tipo>
+            <coluna>E</coluna>
+            <linha>2</linha>
+        </Peca>
+        <Peca id="21">
+            <tipo>Bishop</tipo>
+            <coluna>F</coluna>
+            <linha>2</linha>
+        </Peca>
+        <Peca id="22">
+            <tipo>Knight</tipo>
+            <coluna>G</coluna>
+            <linha>2</linha>
+        </Peca>
+        <Peca id="23">
+            <tipo>Rook</tipo>
+            <coluna>H</coluna>
+            <linha>2</linha>
+        </Peca>
+        <Peca id="24">
+            <tipo>Pawn</tipo>
+            <coluna>A</coluna>
+            <linha>1</linha>
+        </Peca>
+        <Peca id="25">
+            <tipo>Pawn</tipo>
+            <coluna>B</coluna>
+            <linha>1</linha>
+        </Peca>
+        <Peca id="26">
+            <tipo>Pawn</tipo>
+            <coluna>C</coluna>
+            <linha>1</linha>
+        </Peca>
+        <Peca id="27">
+            <tipo>Pawn</tipo>
+            <coluna>D</coluna>
+            <linha>1</linha>
+        </Peca>
+        <Peca id="28">
+            <tipo>Pawn</tipo>
+            <coluna>E</coluna>
+            <linha>1</linha>
+        </Peca>
+        <Peca id="29">
+            <tipo>Pawn</tipo>
+            <coluna>F</coluna>
+            <linha>1</linha>
+        </Peca>
+        <Peca id="30">
+            <tipo>Pawn</tipo>
+            <coluna>G</coluna>
+            <linha>1</linha>
+        </Peca>
+        <Peca id="31">
+            <tipo>Pawn</tipo>
+            <coluna>H</coluna>
+            <linha>1</linha>
+        </Peca>
+    </PecasBrancas>
+</Tabuleiro>

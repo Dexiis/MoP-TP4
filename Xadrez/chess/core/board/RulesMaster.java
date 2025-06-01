@@ -4,13 +4,14 @@ import chess.core.Color;
 import chess.core.Square;
 import chess.core.board.pieces.*;
 
+import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.List;
 
 /**
  * A classe RulesMaster contém todas as regras do jogo.
  */
-public class RulesMaster {
+public class RulesMaster implements Serializable {
 
     private final Board board;
 

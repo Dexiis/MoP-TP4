@@ -5,6 +5,7 @@ import chess.core.Square;
 import chess.core.board.pieces.Piece;
 import chess.core.board.pieces.Rook;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;
@@ -14,7 +15,7 @@ import java.util.List;
  * Implementa um tabuleiro de xadrez passivo.
  * Por passivo, significa que esta implementação não oferece validação de movimentos de peças nem qualquer validação de regras de xadrez.
  */
-public class Board {
+public class Board implements Serializable {
     static Board instance = null;
     private final Square[][] board = new Square[8][8];
     private final List<Move> moves = new LinkedList<>();

@@ -2,7 +2,9 @@ package chess.core.board.pieces;
 
 import chess.core.Color;
 
-public class Rook extends Piece {
+import java.io.Serializable;
+
+public class Rook extends Piece implements Serializable {
     public Rook(Color color) {
         super(color);
     }
