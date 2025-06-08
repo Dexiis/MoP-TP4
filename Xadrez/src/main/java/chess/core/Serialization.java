@@ -1,16 +1,31 @@
 package chess.core;
 
+import chess.userinterface.ChessBoardUI;
 import chess.userinterface.ConsoleInterface;
 
 import java.io.*;
 
 public class Serialization {
     /**
-     * Salva o objeto Board atualmente em memória para um ficheiro serializado (.bin).
+     * Salva o objeto Board atualmente em memória para um ficheiro serialization (.bin).
      */
-    public static void saveBoard(ConsoleInterface console) {
-        try (FileOutputStream streamFile = new FileOutputStream("savedFiles/latestChessGame.bin"); ObjectOutputStream objectFile = new ObjectOutputStream(streamFile)) {
+    public static void saveBoardConsole(ConsoleInterface console) {
+        try (FileOutputStream streamFile = new FileOutputStream("savedFiles/latestChessGameConsole.bin"); ObjectOutputStream objectFile = new ObjectOutputStream(streamFile)) {
             objectFile.writeObject(console);
+            objectFile.flush();
+            objectFile.close();
+            System.out.println("Tabuleiro salvo com sucesso!");
+        } catch (IOException e) {
+            System.out.println("Erro ao salvar o tabuleiro!");
+        }
+    }
+
+    /**
+     * Salva o objeto Board atualmente em memória para um ficheiro serialization (.bin).
+     */
+    public static void saveBoardGUI(GameManager game) {
+        try (FileOutputStream streamFile = new FileOutputStream("savedFiles/latestChessGameGUI.bin"); ObjectOutputStream objectFile = new ObjectOutputStream(streamFile)) {
+            objectFile.writeObject(game);
             objectFile.flush();
             objectFile.close();
             System.out.println("Tabuleiro salvo com sucesso!");
@@ -24,12 +39,21 @@ public class Serialization {
      *
      * @return {@code false} se o carregamento for bem-sucedido, {@code true} se ocorrer um erro.
      */
-    public static ConsoleInterface loadBoard() {
-        try (FileInputStream streamFile = new FileInputStream("savedFiles/latestChessGame.bin"); ObjectInputStream objectFile = new ObjectInputStream(streamFile)) {
+    public static ConsoleInterface loadBoardConsole() {
+        try (FileInputStream streamFile = new FileInputStream("savedFiles/latestChessGameConsole.bin"); ObjectInputStream objectFile = new ObjectInputStream(streamFile)) {
             return (ConsoleInterface) objectFile.readObject();
         } catch (IOException | ClassNotFoundException e) {
             System.out.println("Erro ao carregar o tabuleiro");
             return new ConsoleInterface();
+        }
+    }
+
+    public static GameManager loadBoardGUI() {
+        try (FileInputStream streamFile = new FileInputStream("savedFiles/latestChessGameGUI.bin"); ObjectInputStream objectFile = new ObjectInputStream(streamFile)) {
+            return (GameManager) objectFile.readObject();
+        } catch (IOException | ClassNotFoundException e) {
+            System.out.println("Erro ao carregar o tabuleiro");
+            return new GameManager();
         }
     }
 

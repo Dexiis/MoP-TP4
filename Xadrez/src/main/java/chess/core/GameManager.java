@@ -70,7 +70,7 @@ public class GameManager implements Serializable {
     }
 
     /**
-     * Aceita um movimento de peça alternadamente entre a cor Branca e Preta.
+     * Aceita um movimento de peça alternadamente entre a cor Branco e Preta.
      * Se for dado um movimento com a cor de peça errada, não faz nada.
      *
      * @param initPosition - posição inicial da peça, como "A2" ou "B7", etc.
@@ -82,7 +82,7 @@ public class GameManager implements Serializable {
     }
 
     /**
-     * Aceita um movimento de peça alternadamente entre a cor Branca e Preta.
+     * Aceita um movimento de peça alternadamente entre a cor Branco e Preta.
      * Se for dado um movimento com a cor de peça errada, não faz nada.
      *
      * @param initPosition - posição inicial da peça
@@ -94,7 +94,7 @@ public class GameManager implements Serializable {
     }
 
     /**
-     * Aceita um movimento de peça alternadamente entre a cor Branca e Preta.
+     * Aceita um movimento de peça alternadamente entre a cor Branco e Preta.
      * Se for dado um movimento com a cor de peça errada, não faz nada.
      *
      * @param piece        - Peça a mover
@@ -126,7 +126,7 @@ public class GameManager implements Serializable {
     }
 
     /**
-     * Aceita um movimento de peça alternadamente entre a cor Branca e Preta.
+     * Aceita um movimento de peça alternadamente entre a cor Branco e Preta.
      * Se for dado um movimento com a cor de peça errada, não faz nada.
      *
      * @param initRow - posição da linha inicial
@@ -144,6 +144,7 @@ public class GameManager implements Serializable {
     public void resetGame() {
         this.board.resetBoard();
         this.placePieces();
+        isWhitePlay = true;
     }
 
     /**

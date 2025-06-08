@@ -1,7 +1,11 @@
 package chess.core;
 
+import chess.core.board.pieces.Piece;
+import org.apache.logging.log4j.core.config.Node;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -12,6 +16,11 @@ import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
+import javax.xml.xpath.XPath;
+import javax.xml.xpath.XPathConstants;
+import javax.xml.xpath.XPathExpressionException;
+import javax.xml.xpath.XPathFactory;
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.List;
@@ -25,8 +34,7 @@ public class XML {
      * @param board - Tabuleiro
      */
     public static void create(List<Square> board) {
-        int row = 8;
-        char col = 'A';
+        int i = 1;
 
         Document documentTabuleiro;
         try {
@@ -37,24 +45,25 @@ public class XML {
             Element rootElement = documentTabuleiro.createElement("Tabuleiro");
             documentTabuleiro.appendChild(rootElement);
 
-            for (int i = 0; i < board.size(); i++) {
-                Square square = board.get(i);
+            Element blackPiecesElement = documentTabuleiro.createElement("PecasPretas");
+            rootElement.appendChild(blackPiecesElement);
+
+            Element whitePiecesElement = documentTabuleiro.createElement("PecasBrancas");
+            rootElement.appendChild(whitePiecesElement);
+
+            for (Square square : board) {
                 if (!square.isEmpty()) {
                     Element pieceElement = documentTabuleiro.createElement("Peca");
-                    pieceElement.setAttribute("id", String.valueOf(i));
-                    pieceElement.setAttribute("cor", square.getPiece().getColor().toString());
+                    pieceElement.setAttribute("id", String.valueOf(i++));
                     pieceElement.setAttribute("tipo", square.getPiece().getClass().getSimpleName());
 
                     Element posElement = documentTabuleiro.createElement("posição");
-                    posElement.appendChild(documentTabuleiro.createTextNode("" + col + row));
+                    posElement.appendChild(documentTabuleiro.createTextNode(square.getPositionAsString()));
                     pieceElement.appendChild(posElement);
 
-                    rootElement.appendChild(pieceElement);
+                    Element pieceColor = pathFinder(square.getPiece().getColor(), documentTabuleiro);
+                    pieceColor.appendChild(pieceElement);
                 }
-                if (col == 'H') {
-                    col = 'A';
-                    row--;
-                } else col++;
             }
 
             try (FileOutputStream fileOut = new FileOutputStream("savedFiles/xadrez.xml")) {
@@ -74,6 +83,17 @@ public class XML {
 
         } catch (ParserConfigurationException e) {
             System.err.println("Erro na configuração do parser XML.");
-        }
+        } catch (IOException | SAXException | XPathExpressionException e) {}
+    }
+
+    private static Element pathFinder(PieceColor color, Document documentTabuleiro) throws ParserConfigurationException, IOException, SAXException, XPathExpressionException {
+        XPathFactory xpathFactory = XPathFactory.newInstance();
+        XPath xpath = xpathFactory.newXPath();
+
+        String expression;
+        if (color == PieceColor.BLACK) expression = "/Tabuleiro/PecasPretas";
+        else expression = "/Tabuleiro/PecasBrancas";
+
+        return (Element) ((NodeList) xpath.evaluate(expression, documentTabuleiro, XPathConstants.NODESET)).item(0);
     }
 }

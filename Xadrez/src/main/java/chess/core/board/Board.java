@@ -195,7 +195,7 @@ public class Board implements Serializable {
         this.makeSimpleMove(initPosition, endPosition);
 
         Piece thisPiece = board[endPosition.row][endPosition.col].getPiece();
-        int enPassantRow = thisPiece.isWhite() ? endPosition.row - 1 : endPosition.row + 1;
+        int enPassantRow = thisPiece.isWhite() ? endPosition.row + 1 : endPosition.row - 1;
         board[enPassantRow][endPosition.col].setEmpty();
     }
 

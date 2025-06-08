@@ -1,8 +1,6 @@
 package chess.userinterface;
 
-import chess.core.GameManager;
-import chess.core.PieceColor;
-import chess.core.Square;
+import chess.core.*;
 import chess.core.board.Position;
 import chess.core.board.pieces.Piece;
 
@@ -10,27 +8,26 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class ChessBoardUI extends JFrame {
-    private GameManager game;
-    private JPanel boardPanel;
-
     private static final Color LIGHT_SQUARE_COLOR = new Color(240, 217, 181);
     private static final Color DARK_SQUARE_COLOR = new Color(181, 136, 99);
     private static final Color HIGHLIGHT_COLOR = new Color(75, 150, 255);
-
     private static final int SQUARE_SIZE = 100;
-
+    private final GameManager game;
+    private final JPanel boardPanel;
     private final Map<String, String> pieceImagePaths;
 
     private Piece selectedPiece = null;
     private JPanel selectedSquareUI = null;
-    private Position sourcePosition = null;
     private int sourceIndex = -1;
+    private Position sourcePosition = null;
 
     /**
      * Construtor da interface do tabuleiro de xadrez.
@@ -39,10 +36,20 @@ public class ChessBoardUI extends JFrame {
      * @param game A instância da sua classe GameManager que contém a lógica do jogo.
      */
     public ChessBoardUI(GameManager game) {
-        this.game = game;
+        this.game = askToLoadGame(game);
         setTitle("Tabuleiro de Xadrez");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         setResizable(false);
+
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                System.out.println("Salvando o jogo antes de sair...");
+                XML.create(game.getBoard());
+                Serialization.saveBoardGUI(game);
+                System.exit(0);
+            }
+        });
 
         pieceImagePaths = new HashMap<>();
         initializePieceImagePaths();
@@ -56,75 +63,49 @@ public class ChessBoardUI extends JFrame {
         setSize(800, 800);
         setLocationRelativeTo(null);
         setVisible(true);
+
+        XML.create(this.game.getBoard());
+        Serialization.saveBoardGUI(this.game);
     }
 
-    /**
-     * Retorna o tabuleiro de xadrez como uma lista de casas.
-     *
-     * @return Uma lista de objetos {@link Square} do tabuleiro.
-     */
-    public List<Square> getBoard() {
-        return game.getBoard();
+    private GameManager askToLoadGame(GameManager game) {
+        int choice = JOptionPane.showConfirmDialog(this,
+                "Deseja continuar o seu último jogo?",
+                "Carregar Jogo",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.QUESTION_MESSAGE);
+
+        if (choice == JOptionPane.YES_OPTION) {
+            System.out.println("Opção: Sim. Carregando o último jogo...");
+            return Serialization.loadBoardGUI();
+        } else {
+            System.out.println("Opção: Não. Iniciando um novo jogo.");
+            return game;
+        }
     }
 
-    /**
-     * Verifica se o jogo terminou ao confirmar se algum dos reis foi capturado.
-     *
-     * @return true se alguma das peças do rei tiver sido capturada.
-     */
-    public boolean isFinished() {
-        return game.isFinished();
-    }
+    private static JPanel gameOverPanel(PieceColor winner) {
+        String winnerMessage;
+        if (winner != null)
+            winnerMessage = (winner == PieceColor.WHITE ? "As peças Brancas" : "As peças Pretas") + " venceram!";
+        else winnerMessage = "O jogo terminou em empate!";
 
-    /**
-     * Obtém a cor do próximo jogador a fazer um movimento.
-     *
-     * @return A Cor do próximo a jogar.
-     */
-    public PieceColor nextPlayer() {
-        return game.nextPlayer();
-    }
-
-    /**
-     * Aceita um movimento de peça. O movimento é processado alternadamente entre branco e preto.
-     * Se for dado um movimento com a cor de peça errada, a ação não é realizada.
-     *
-     * @param piece A peça a mover.
-     * @param initPosition A posição inicial da peça.
-     * @param endPosition A posição final da peça.
-     */
-    public void play(Piece piece, Position initPosition, Position endPosition) {
-        game.play(piece, initPosition, endPosition);
-    }
-
-    /**
-     * Aceita um movimento de peça a partir de strings de posição. O movimento é processado
-     * alternadamente entre branco e preto. Se for dado um movimento com a cor de peça errada,
-     * a ação não é realizada.
-     *
-     * @param initPosition A posição inicial da peça, como "A2" ou "B7", etc.
-     * @param endPosition A posição final da peça, como "A2" ou "B7", etc.
-     */
-    public void play(String initPosition, String endPosition) {
-        game.play(initPosition, endPosition);
+        JPanel messagePanel = new JPanel();
+        messagePanel.setBackground(new Color(230, 230, 230)); // Um cinzento claro
+        JLabel messageLabel = new JLabel("<html><center><br>" + winnerMessage + "<br><br>Gostaria de jogar novamente?</center></html>");
+        messageLabel.setFont(new Font("Arial", Font.BOLD, 18));
+        messageLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        messagePanel.add(messageLabel);
+        return messagePanel;
     }
 
     /**
      * Reinicia o jogo, recolocando todas as peças nas suas posições iniciais.
-     * Após o reinício, o tabuleiro na interface gráfica é redesenhado para refletir o estado atual.
+     * Após o reinício, o tabuleiro na "interface" gráfica é redesenhado para refletir o estado atual.
      */
     public void resetGame() {
         game.resetGame();
         drawBoard();
-    }
-
-    /**
-     * Retorna a cor vencedora se o jogo tiver terminado.
-     *
-     * @return A Cor do último rei em jogo se o jogo tiver terminado, ou null se o jogo não tiver terminado.
-     */
-    public PieceColor whoWon() {
-        return game.whoWon();
     }
 
     private void drawBoard() {
@@ -135,46 +116,38 @@ public class ChessBoardUI extends JFrame {
             for (int col = 0; col < 8; col++) {
                 JPanel squareUI = new JPanel();
                 squareUI.setLayout(new BorderLayout());
-
-                boolean isLightSquare = (row + col) % 2 == 0;
-                if (isLightSquare) {
-                    squareUI.setBackground(LIGHT_SQUARE_COLOR);
-                } else {
-                    squareUI.setBackground(DARK_SQUARE_COLOR);
-                }
+                squareUI.setBackground(this.getOriginalSquareColor(row, col));
 
                 final int currentIndex = (row * 8) + col;
 
                 final Position currentPosition;
                 final Piece pieceInSquare;
 
-                if (currentIndex >= 0 && currentIndex < board.size()) {
+                if (currentIndex < board.size()) {
                     Square currentSquare = board.get(currentIndex);
                     pieceInSquare = currentSquare.getPiece();
                     currentPosition = currentSquare.getPosition();
                 } else {
-                    currentPosition = new Position((char)('A' + col), 8 - row);
+                    currentPosition = new Position((char) ('A' + col), 8 - row);
                     pieceInSquare = null;
                     System.err.println("Erro: Índice do tabuleiro fora dos limites: " + currentIndex);
                 }
 
                 if (pieceInSquare != null) {
-                    String pieceKey = (pieceInSquare.getColor() == PieceColor.WHITE ? "white" : "black") + pieceInSquare.getClass().getSimpleName();
+                    String pieceKey = (pieceInSquare.isWhite() ? "white" : "black") + pieceInSquare.getClass().getSimpleName();
                     String imagePath = pieceImagePaths.get(pieceKey);
 
                     if (imagePath != null) {
-                        ImageIcon pieceIcon = loadImage(imagePath, SQUARE_SIZE, SQUARE_SIZE);
+                        ImageIcon pieceIcon = loadImage(imagePath);
                         if (pieceIcon != null) {
                             JLabel pieceLabel = new JLabel(pieceIcon);
                             pieceLabel.setHorizontalAlignment(SwingConstants.CENTER);
                             pieceLabel.setVerticalAlignment(SwingConstants.CENTER);
                             squareUI.add(pieceLabel, BorderLayout.CENTER);
-                        } else {
+                        } else
                             System.err.println("Erro: Imagem para " + pieceKey + " não encontrada ou não pôde ser redimensionada.");
-                        }
-                    } else {
+                    } else
                         System.err.println("Erro: Caminho da imagem não mapeado para " + pieceKey + ". Verifique initializePieceImagePaths().");
-                    }
                 }
 
                 squareUI.addMouseListener(new MouseAdapter() {
@@ -191,6 +164,32 @@ public class ChessBoardUI extends JFrame {
         boardPanel.repaint();
     }
 
+    private JPanel gameOverPanel(JDialog gameOverDialog) {
+        JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 15, 10));
+        buttonPanel.setBackground(new Color(230, 230, 230));
+
+        JButton playAgainButton = playAgainPanel(gameOverDialog);
+
+        JButton exitButton = new JButton("Sair do Jogo");
+        exitButton.setFont(new Font("Arial", Font.PLAIN, 16));
+        exitButton.setBackground(new Color(200, 80, 80)); // Vermelho
+        exitButton.setForeground(Color.WHITE);
+        exitButton.setFocusPainted(false);
+        exitButton.addActionListener(_ -> System.exit(0));
+
+        buttonPanel.add(playAgainButton);
+        buttonPanel.add(exitButton);
+        return buttonPanel;
+    }
+
+    private Color getOriginalSquareColor(int index) {
+        return this.getOriginalSquareColor(index / 8, index % 8);
+    }
+
+    private Color getOriginalSquareColor(int row, int col) {
+        return (row + col) % 2 == 0 ? LIGHT_SQUARE_COLOR : DARK_SQUARE_COLOR;
+    }
+
     private void handleSquareClick(JPanel clickedSquareUI, Position clickedPosition, Piece pieceAtClickedPosition, int clickedIndex) {
         if (selectedPiece == null) {
             if (pieceAtClickedPosition != null) {
@@ -201,12 +200,8 @@ public class ChessBoardUI extends JFrame {
                     sourceIndex = clickedIndex;
                     clickedSquareUI.setBackground(HIGHLIGHT_COLOR);
                     System.out.println("Peça selecionada: " + selectedPiece.getClass().getSimpleName() + " em " + sourcePosition);
-                } else {
-                    System.out.println("Não é a vez dessa cor jogar.");
-                }
-            } else {
-                System.out.println("Nenhuma peça para selecionar nesta casa.");
-            }
+                } else System.out.println("Não é a vez dessa cor jogar.");
+            } else System.out.println("Nenhuma peça para selecionar nesta casa.");
         } else {
             if (clickedPosition.equals(sourcePosition)) {
                 selectedSquareUI.setBackground(getOriginalSquareColor(sourceIndex));
@@ -227,19 +222,9 @@ public class ChessBoardUI extends JFrame {
                 drawBoard();
                 System.out.println("Movimento processado. Tabuleiro atualizado.");
 
-                if (game.isFinished()) {
-                    showGameOverDialog();
-                }
+                if (game.isFinished()) showGameOverDialog();
             }
         }
-    }
-
-    private Color getOriginalSquareColor(int index) {
-        int row = index / 8;
-        int col = index % 8;
-
-        boolean isLightSquare = (row + col) % 2 == 0;
-        return isLightSquare ? LIGHT_SQUARE_COLOR : DARK_SQUARE_COLOR;
     }
 
     private void initializePieceImagePaths() {
@@ -257,22 +242,31 @@ public class ChessBoardUI extends JFrame {
         pieceImagePaths.put("blackPawn", "images/blackPawn.png");
     }
 
-    private ImageIcon loadImage(String path, int width, int height) {
+    private ImageIcon loadImage(String path) {
         URL imageUrl = getClass().getClassLoader().getResource(path);
         if (imageUrl != null) {
             ImageIcon originalIcon = new ImageIcon(imageUrl);
             Image originalImage = originalIcon.getImage();
-            Image scaledImage = originalImage.getScaledInstance(width, height, Image.SCALE_SMOOTH);
+            Image scaledImage = originalImage.getScaledInstance(ChessBoardUI.SQUARE_SIZE, ChessBoardUI.SQUARE_SIZE, Image.SCALE_SMOOTH);
             return new ImageIcon(scaledImage);
-        } else {
-            return null;
         }
+        return null;
     }
 
-    /**
-     * Exibe um diálogo personalizado de fim de jogo, informando o vencedor e oferecendo opções para
-     * jogar novamente ou sair do programa.
-     */
+    private JButton playAgainPanel(JDialog gameOverDialog) {
+        JButton playAgainButton = new JButton("Jogar Novamente");
+        playAgainButton.setFont(new Font("Arial", Font.PLAIN, 16));
+        playAgainButton.setBackground(new Color(100, 180, 100)); // Verde
+        playAgainButton.setForeground(Color.WHITE);
+        playAgainButton.setFocusPainted(false); // Remove o contorno de foco
+        playAgainButton.addActionListener(_ -> {
+            gameOverDialog.dispose(); // Fecha o diálogo
+            resetGame();             // Reinicia o jogo
+            this.setEnabled(true);   // Reativa a janela principal
+        });
+        return playAgainButton;
+    }
+
     private void showGameOverDialog() {
         // Desativar a janela principal para que o foco fique no diálogo
         this.setEnabled(false);
@@ -282,52 +276,14 @@ public class ChessBoardUI extends JFrame {
         gameOverDialog.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE); // Impede fechar pelo 'X'
 
         PieceColor winner = game.whoWon();
-        String winnerMessage;
-        if (winner != null) {
-            winnerMessage = (winner == PieceColor.WHITE ? "As peças Brancas" : "As peças Pretas") + " venceram!";
-        } else {
-            winnerMessage = "O jogo terminou em empate!";
-        }
-
-        // Painel para a mensagem
-        JPanel messagePanel = new JPanel();
-        messagePanel.setBackground(new Color(230, 230, 230)); // Um cinzento claro
-        JLabel messageLabel = new JLabel("<html><center><br>"+ winnerMessage + "<br><br>Gostaria de jogar novamente?</center></html>");
-        messageLabel.setFont(new Font("Arial", Font.BOLD, 18));
-        messageLabel.setHorizontalAlignment(SwingConstants.CENTER);
-        messagePanel.add(messageLabel);
-
-        JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 15, 10)); // Espaçamento entre botões
-        buttonPanel.setBackground(new Color(230, 230, 230));
-
-        JButton playAgainButton = new JButton("Jogar Novamente");
-        playAgainButton.setFont(new Font("Arial", Font.PLAIN, 16));
-        playAgainButton.setBackground(new Color(100, 180, 100)); // Verde
-        playAgainButton.setForeground(Color.WHITE);
-        playAgainButton.setFocusPainted(false); // Remove o contorno de foco
-        playAgainButton.addActionListener(e -> {
-            gameOverDialog.dispose(); // Fecha o diálogo
-            resetGame();             // Reinicia o jogo
-            this.setEnabled(true);   // Reativa a janela principal
-        });
-
-        JButton exitButton = new JButton("Sair do Jogo");
-        exitButton.setFont(new Font("Arial", Font.PLAIN, 16));
-        exitButton.setBackground(new Color(200, 80, 80)); // Vermelho
-        exitButton.setForeground(Color.WHITE);
-        exitButton.setFocusPainted(false);
-        exitButton.addActionListener(e -> {
-            System.exit(0);
-        });
-
-        buttonPanel.add(playAgainButton);
-        buttonPanel.add(exitButton);
+        JPanel messagePanel = gameOverPanel(winner);
+        JPanel buttonPanel = gameOverPanel(gameOverDialog);
 
         gameOverDialog.add(messagePanel, BorderLayout.CENTER);
         gameOverDialog.add(buttonPanel, BorderLayout.SOUTH);
 
         gameOverDialog.pack(); // Ajusta o tamanho do diálogo ao conteúdo
-        gameOverDialog.setLocationRelativeTo(this); // Centraliza em relação à janela principal
+        gameOverDialog.setLocationRelativeTo(this); // Centra relativamente à janela principal
         gameOverDialog.setVisible(true); // Torna o diálogo visível
     }
 }

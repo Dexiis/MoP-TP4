@@ -78,7 +78,7 @@ public class RulesMaster implements Serializable {
 
     /**
      * Verifica se um determinado movimento é um roque (castling).
-     * Este metodo valida se o movimento envolve um Rei que nunca se moveu,
+     * Este méto_do valida se o movimento envolve um Rei que nunca se moveu,
      * uma Torre também não movida, e se as casas entre eles estão vazias.
      *
      * @param initPosition A posição inicial do Rei.
@@ -89,10 +89,10 @@ public class RulesMaster implements Serializable {
         Piece piece = board.getPiece(initPosition);
         Position rookInitPosition = endPosition.isOnRightOf(initPosition) ? new Position(initPosition.row, 7) : new Position(initPosition.row, 0);
 
-        if (piece instanceof King && !piece.hasMoved()) {
+        if (piece instanceof King && piece.hasNotMoved()) {
             if (board.areSquaresEmpty(initPosition, rookInitPosition)) { // Verifica se as casas entre o Rei e a Torre estão vazias.
                 Piece rookPiece = board.getPiece(rookInitPosition);
-                return rookPiece instanceof Rook && !rookPiece.hasMoved(); // Confirma se a peça na posição da Torre é realmente uma Torre e se nunca se moveu.
+                return rookPiece instanceof Rook && rookPiece.hasNotMoved(); // Confirma se a peça na posição da Torre é realmente uma Torre e se nunca se moveu.
             }
         }
         return false;
@@ -210,14 +210,14 @@ public class RulesMaster implements Serializable {
         }
 
         Piece king = board.getPiece(position);
-        if (!king.hasMoved()) {
+        if (king.hasNotMoved()) {
 
             // KING SIDE CASTLING
             Piece targetRookKingSide = (king.getColor() == PieceColor.WHITE) ? board.getPiece(7, 7) : board.getPiece(0, 7);
             Position[] targetPositionsKingSide = (king.getColor() == PieceColor.WHITE) ? new Position[]{new Position(7, 5), new Position(7, 6)} : new Position[]{new Position(0, 5), new Position(0, 6)};
             Position kingSideCastlingTarget = (king.getColor() == PieceColor.WHITE) ? new Position(7, 6) : new Position(0, 6);
 
-            if (targetRookKingSide instanceof Rook && board.getSquare(targetPositionsKingSide[0]).isEmpty() && board.getSquare(targetPositionsKingSide[1]).isEmpty() && !targetRookKingSide.hasMoved()) {
+            if (targetRookKingSide instanceof Rook && board.getSquare(targetPositionsKingSide[0]).isEmpty() && board.getSquare(targetPositionsKingSide[1]).isEmpty() && targetRookKingSide.hasNotMoved()) {
                 moves.add(kingSideCastlingTarget);
             }
 
@@ -226,7 +226,7 @@ public class RulesMaster implements Serializable {
             Position[] targetPositionsQueenSide = (king.getColor() == PieceColor.WHITE) ? new Position[]{new Position(7, 3), new Position(7, 2), new Position(7, 1)} : new Position[]{new Position(0, 3), new Position(0, 2), new Position(0, 1)};
             Position queenSideCastlingTarget = (king.getColor() == PieceColor.WHITE) ? new Position(7, 2) : new Position(0, 2);
 
-            if (targetQueenQueenSide instanceof Rook && board.getSquare(targetPositionsQueenSide[0]).isEmpty() && board.getSquare(targetPositionsQueenSide[1]).isEmpty() && !targetQueenQueenSide.hasMoved()) {
+            if (targetQueenQueenSide instanceof Rook && board.getSquare(targetPositionsQueenSide[0]).isEmpty() && board.getSquare(targetPositionsQueenSide[1]).isEmpty() && targetQueenQueenSide.hasNotMoved()) {
                 moves.add(queenSideCastlingTarget);
             }
         }
@@ -337,7 +337,7 @@ public class RulesMaster implements Serializable {
         // Só pode mover duas casas se a primeira já estiver livre e o peão estiver na sua casa inicial.
         if (row == startRow) {
             int twoStepsForwardRow = row + (2 * direction);
-            if (isValidPosition(twoStepsForwardRow, col) && board.getSquare(twoStepsForwardRow, row).isEmpty())
+            if (isValidPosition(twoStepsForwardRow, col) && board.getSquare(twoStepsForwardRow, col).isEmpty() && board.getSquare(oneStepForwardRow, col).isEmpty())
                 positions.add(new Position(twoStepsForwardRow, col));
         }
 

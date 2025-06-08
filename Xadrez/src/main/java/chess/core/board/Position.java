@@ -3,8 +3,8 @@ package chess.core.board;
 import java.io.Serializable;
 
 public class Position implements Serializable {
-    public int row;
-    public int col;
+    public final int row;
+    public final int col;
 
     public Position(int row, int col) {
         this.row = row;
@@ -30,7 +30,7 @@ public class Position implements Serializable {
     }
 
     /**
-     * Retorna a posição como uma letra de "A" a "H".
+     * Retorna a posição como uma letra de "A" a "H"
      * e um número de 1 a 8.
      * Por exemplo, B6, H3, etc.
      */

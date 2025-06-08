@@ -16,8 +16,8 @@ public abstract class Piece implements Serializable {
         return this.pieceColor;
     }
 
-    public final boolean hasMoved() {
-        return this.hasMoved;
+    public final boolean hasNotMoved() {
+        return !this.hasMoved;
     }
 
     public final boolean isWhite() {

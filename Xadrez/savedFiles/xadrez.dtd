@@ -1,10 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE Tabuleiro SYSTEM "xadrez.dtd">
-	<!ELEMENT Tabuleiro (Peca*)>
-	<!ELEMENT Peca (posição)>
-	<!ATTLIST Peca
-		cor     (BLACK | WHITE) #REQUIRED
-		id      CDATA #REQUIRED
-		tipo    (Rook | Knight | Bishop | Queen | King | Pawn) #REQUIRED
-	>
-	<!ELEMENT posição (#PCDATA)>
+<!ELEMENT Tabuleiro (PecasPretas, PecasBrancas)>
+		<!ELEMENT PecasPretas (Peca*)>
+		<!ELEMENT PecasBrancas (Peca*)>
+		<!ELEMENT Peca (posição)>
+		<!ATTLIST Peca
+				id CDATA #REQUIRED
+				tipo CDATA #REQUIRED
+				>
+		<!ELEMENT posição (#PCDATA)>

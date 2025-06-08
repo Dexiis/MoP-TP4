@@ -6,19 +6,11 @@ import chess.core.board.pieces.Piece;
 import java.io.Serializable;
 
 public class Square implements Serializable {
+    private final Position position;
     private Piece piece;
-    private Position position;
-
-    public Square() {
-
-    }
 
     public Square(int row, int col) {
         this.position = new Position(row, col);
-    }
-
-    public Square(Piece piece) {
-        this.piece = piece;
     }
 
     public Piece getPiece() {
@@ -29,16 +21,18 @@ public class Square implements Serializable {
         this.piece = piece;
     }
 
-    public String getPositionAsString() {
-        return "" + ('A' - this.position.row) + this.position.col;
-    }
-
     public Position getPosition() {
         return this.position;
     }
 
-    public void setPosition(Position position) {
-        this.position = position;
+    /**
+     * Retorna a posição desta casa no formato de uma ‘String’ do tipo
+     * A2, H1 ou E7, etc.
+     *
+     * @return {@code String} da posição da casa.
+     */
+    public String getPositionAsString() {
+        return String.valueOf((char) ('A' + this.position.col)) + (8 - this.position.row);
     }
 
     /**
@@ -58,10 +52,6 @@ public class Square implements Serializable {
      */
     public void setEmpty() {
         this.piece = null;
-    }
-
-    public void setPosition(int row, int col) {
-        this.position = new Position(row, col);
     }
 
     private String printSquare() {

@@ -7,7 +7,7 @@ import chess.userinterface.ConsoleInterface;
 public class Main {
     private static void checkForLeavingGame(String string, ConsoleInterface console) {
         if (string.equalsIgnoreCase("QUIT")) {
-            Serialization.saveBoard(console);
+            Serialization.saveBoardConsole(console);
             XML.create(console.getBoard());
             System.exit(0);
         }
@@ -16,6 +16,7 @@ public class Main {
     public static void main(String[] args) {
         ChessBoardUI chessBoardUI = new ChessBoardUI(new GameManager());
 
+        // CÓDIGO DO TABULEIRO ASCII
 //        ConsoleInterface console;
 //        Scanner keyboard = new Scanner(System.in);
 //
