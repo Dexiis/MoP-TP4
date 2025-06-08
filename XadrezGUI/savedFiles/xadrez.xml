@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE Tabuleiro SYSTEM "xadrez.dtd">
+<Tabuleiro>
+    <PecasPretas>
+        <Peca id="1" tipo="Rook">
+            <posição>A8</posição>
+        </Peca>
+        <Peca id="2" tipo="Knight">
+            <posição>B8</posição>
+        </Peca>
+        <Peca id="3" tipo="Bishop">
+            <posição>C8</posição>
+        </Peca>
+        <Peca id="4" tipo="Queen">
+            <posição>D8</posição>
+        </Peca>
+        <Peca id="5" tipo="King">
+            <posição>E8</posição>
+        </Peca>
+        <Peca id="6" tipo="Bishop">
+            <posição>F8</posição>
+        </Peca>
+        <Peca id="7" tipo="Knight">
+            <posição>G8</posição>
+        </Peca>
+        <Peca id="8" tipo="Rook">
+            <posição>H8</posição>
+        </Peca>
+        <Peca id="9" tipo="Pawn">
+            <posição>A7</posição>
+        </Peca>
+        <Peca id="10" tipo="Pawn">
+            <posição>B7</posição>
+        </Peca>
+        <Peca id="11" tipo="Pawn">
+            <posição>C7</posição>
+        </Peca>
+        <Peca id="12" tipo="Pawn">
+            <posição>D7</posição>
+        </Peca>
+        <Peca id="13" tipo="Pawn">
+            <posição>E7</posição>
+        </Peca>
+        <Peca id="14" tipo="Pawn">
+            <posição>F7</posição>
+        </Peca>
+        <Peca id="15" tipo="Pawn">
+            <posição>G7</posição>
+        </Peca>
+        <Peca id="16" tipo="Pawn">
+            <posição>H7</posição>
+        </Peca>
+    </PecasPretas>
+    <PecasBrancas>
+        <Peca id="17" tipo="Pawn">
+            <posição>A2</posição>
+        </Peca>
+        <Peca id="18" tipo="Pawn">
+            <posição>B2</posição>
+        </Peca>
+        <Peca id="19" tipo="Pawn">
+            <posição>C2</posição>
+        </Peca>
+        <Peca id="20" tipo="Pawn">
+            <posição>D2</posição>
+        </Peca>
+        <Peca id="21" tipo="Pawn">
+            <posição>E2</posição>
+        </Peca>
+        <Peca id="22" tipo="Pawn">
+            <posição>F2</posição>
+        </Peca>
+        <Peca id="23" tipo="Pawn">
+            <posição>G2</posição>
+        </Peca>
+        <Peca id="24" tipo="Pawn">
+            <posição>H2</posição>
+        </Peca>
+        <Peca id="25" tipo="Rook">
+            <posição>A1</posição>
+        </Peca>
+        <Peca id="26" tipo="Knight">
+            <posição>B1</posição>
+        </Peca>
+        <Peca id="27" tipo="Bishop">
+            <posição>C1</posição>
+        </Peca>
+        <Peca id="28" tipo="Queen">
+            <posição>D1</posição>
+        </Peca>
+        <Peca id="29" tipo="King">
+            <posição>E1</posição>
+        </Peca>
+        <Peca id="30" tipo="Bishop">
+            <posição>F1</posição>
+        </Peca>
+        <Peca id="31" tipo="Knight">
+            <posição>G1</posição>
+        </Peca>
+        <Peca id="32" tipo="Rook">
+            <posição>H1</posição>
+        </Peca>
+    </PecasBrancas>
+</Tabuleiro>

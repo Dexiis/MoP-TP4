@@ -1,0 +1,410 @@
+[INFO ] 2025-06-03 19:10:41.781 [main] Board - ♙ from chess.core.board.Position@ba to chess.core.board.Position@9b
+[INFO ] 2025-06-03 19:12:50.591 [main] Board - ♙ from A7 to A6
+[INFO ] 2025-06-03 19:47:41.251 [main] Board - New Game
+[INFO ] 2025-06-03 19:50:58.792 [main] Board - New Game
+[INFO ] 2025-06-03 19:51:22.430 [main] Board - New Game
+[INFO ] 2025-06-03 19:51:31.508 [main] Board - ♙ from A7 to A6
+[INFO ] 2025-06-03 20:04:58.740 [main] Board - New Game
+[INFO ] 2025-06-03 20:05:05.772 [main] Board - ♙ from A7 to A6
+[INFO ] 2025-06-03 20:05:21.410 [main] Board - New Game
+[INFO ] 2025-06-03 20:05:25.139 [main] Board - ♙ from A7 to A6
+[INFO ] 2025-06-03 20:08:19.952 [main] Board - New Game
+[INFO ] 2025-06-03 20:08:56.331 [main] Board - New Game
+[INFO ] 2025-06-03 20:11:13.905 [main] Board - New Game
+[INFO ] 2025-06-03 20:19:18.258 [main] Board - New Game
+[INFO ] 2025-06-03 20:23:40.421 [main] Board - New Game
+[INFO ] 2025-06-03 20:23:44.805 [main] Board - ♙ from A7 to A6
+[INFO ] 2025-06-03 21:02:23.763 [main] Board - New Game
+[INFO ] 2025-06-03 21:51:50.876 [main] Board - New Game
+[INFO ] 2025-06-03 21:52:01.817 [main] Board - ♙ from A7 to A5
+[INFO ] 2025-06-03 21:54:26.714 [main] Board - New Game
+[INFO ] 2025-06-03 21:56:50.766 [main] Board - ♙ from A7 to A5
+[INFO ] 2025-06-03 21:56:57.053 [main] Board - New Game
+[INFO ] 2025-06-03 21:57:24.298 [main] Board - ♙ from A1 to A3
+[INFO ] 2025-06-03 21:57:36.573 [main] Board - New Game
+[INFO ] 2025-06-03 21:57:53.997 [main] Board - ♙ from A2 to A3
+[INFO ] 2025-06-04 18:02:20.871 [main] Board - New Game
+[INFO ] 2025-06-04 18:03:16.398 [main] Board - New Game
+[INFO ] 2025-06-04 18:03:25.841 [main] Board - ♙ from E2 to E4
+[INFO ] 2025-06-04 18:03:53.551 [main] Board - ♟ from E7 to E5
+[INFO ] 2025-06-04 18:09:25.282 [main] Board - New Game
+[INFO ] 2025-06-04 18:10:02.182 [main] Board - ♙ from E2 to E4
+[INFO ] 2025-06-04 18:17:20.439 [main] Board - ♟ from E7 to E5
+[INFO ] 2025-06-04 18:22:28.156 [main] Board - New Game
+[INFO ] 2025-06-04 18:22:53.591 [main] Board - ♙ from E2 to E4
+[INFO ] 2025-06-04 18:26:58.685 [main] Board - ♟ from E7 to E5
+[INFO ] 2025-06-04 18:43:44.472 [main] Board - New Game
+[INFO ] 2025-06-04 18:46:29.107 [main] Board - New Game
+[INFO ] 2025-06-04 18:46:35.782 [main] Board - ♙ from E2 to E4
+[INFO ] 2025-06-04 18:46:46.532 [main] Board - ♟ from E7 to E5
+[INFO ] 2025-06-04 18:50:18.044 [main] Board - New Game
+[INFO ] 2025-06-04 18:50:24.981 [main] Board - ♙ from E2 to E4
+[INFO ] 2025-06-04 18:50:32.634 [main] Board - ♟ from D7 to D5
+[INFO ] 2025-06-04 18:50:45.218 [main] Board - ♙ from E4 to E5
+[INFO ] 2025-06-04 18:51:05.843 [main] Board - ♟ from F7 to F5
+[INFO ] 2025-06-04 18:51:16.566 [main] Board - ♙ from C2 to C4
+[INFO ] 2025-06-04 19:02:07.858 [main] Board - New Game
+[INFO ] 2025-06-04 19:02:28.866 [main] Board - ♙ from E2 to E4
+[INFO ] 2025-06-04 19:02:36.336 [main] Board - ♟ from D7 to D5
+[INFO ] 2025-06-04 19:02:45.254 [main] Board - ♙ from E4 to D5
+[INFO ] 2025-06-04 19:07:27.882 [main] Board - New Game
+[INFO ] 2025-06-04 19:07:33.557 [main] Board - ♙ from E2 to E4
+[INFO ] 2025-06-04 19:07:40.280 [main] Board - ♟ from D7 to D5
+[INFO ] 2025-06-04 19:07:49.851 [main] Board - ♙ from E4 to D5
+[INFO ] 2025-06-04 21:39:03.973 [main] Board - New Game
+[INFO ] 2025-06-05 18:56:32.855 [main] Board - New Game
+[INFO ] 2025-06-05 18:56:41.002 [main] Board - ♙ from A2 to A4
+[INFO ] 2025-06-05 19:11:07.239 [main] Board - New Game
+[INFO ] 2025-06-05 19:11:15.961 [main] Board - ♙ from B2 to B3
+[INFO ] 2025-06-05 21:02:59.654 [main] Board - New Game
+[INFO ] 2025-06-05 21:03:03.955 [main] Board - ♙ from A2 to A4
+[INFO ] 2025-06-05 21:03:16.171 [main] Board - ♟ from A7 to A5
+[INFO ] 2025-06-05 21:10:59.243 [main] Board - New Game
+[INFO ] 2025-06-05 21:11:04.327 [main] Board - ♙ from A2 to A4
+[INFO ] 2025-06-05 21:51:22.484 [main] Board - New Game
+[INFO ] 2025-06-05 21:51:29.480 [main] Board - ♙ from A2 to A3
+[INFO ] 2025-06-05 21:51:40.405 [main] Board - ♟ from B7 to B6
+[INFO ] 2025-06-05 21:53:19.981 [main] Board - New Game
+[INFO ] 2025-06-05 21:53:34.294 [main] Board - ♙ from A2 to A4
+[INFO ] 2025-06-05 21:53:57.275 [main] Board - ♟ from C7 to C6
+[INFO ] 2025-06-05 21:55:30.576 [main] Board - New Game
+[INFO ] 2025-06-05 21:55:36.460 [main] Board - ♙ from A2 to A4
+[INFO ] 2025-06-05 21:55:53.150 [main] Board - ♟ from B7 to B6
+[INFO ] 2025-06-05 22:03:17.621 [main] Board - New Game
+[INFO ] 2025-06-05 22:03:22.094 [main] Board - ♙ from A2 to A4
+[INFO ] 2025-06-05 22:03:31.943 [main] Board - ♟ from D7 to D6
+[INFO ] 2025-06-05 22:04:28.588 [main] Board - New Game
+[INFO ] 2025-06-05 22:04:35.179 [main] Board - ♙ from A2 to A4
+[INFO ] 2025-06-05 22:04:44.782 [main] Board - ♟ from E7 to E6
+[INFO ] 2025-06-06 18:34:54.884 [main] Board - New Game
+[INFO ] 2025-06-06 18:35:00.682 [main] Board - ♙ from A2 to A4
+[INFO ] 2025-06-06 18:35:07.258 [main] Board - ♟ from B7 to B5
+[INFO ] 2025-06-07 09:52:43.642 [main] Board - New Game
+[INFO ] 2025-06-07 10:15:23.509 [main] Board - New Game
+[INFO ] 2025-06-07 10:20:46.930 [main] Board - New Game
+[INFO ] 2025-06-07 12:01:19.712 [main] Board - New Game
+[INFO ] 2025-06-07 14:05:23.532 [main] Board - New Game
+[INFO ] 2025-06-07 14:13:17.282 [main] Board - New Game
+[INFO ] 2025-06-07 14:19:13.361 [main] Board - New Game
+[INFO ] 2025-06-07 14:19:36.209 [main] Board - New Game
+[INFO ] 2025-06-07 14:22:32.619 [main] Board - New Game
+[INFO ] 2025-06-07 14:35:02.610 [main] Board - New Game
+[INFO ] 2025-06-07 14:36:10.031 [main] Board - New Game
+[INFO ] 2025-06-07 14:36:45.386 [main] Board - New Game
+[INFO ] 2025-06-07 14:37:25.885 [main] Board - New Game
+[INFO ] 2025-06-07 14:38:56.386 [main] Board - New Game
+[INFO ] 2025-06-07 14:50:53.192 [main] Board - New Game
+[INFO ] 2025-06-07 14:57:06.688 [main] Board - New Game
+[INFO ] 2025-06-07 14:58:03.394 [main] Board - New Game
+[INFO ] 2025-06-07 14:59:31.264 [main] Board - New Game
+[INFO ] 2025-06-07 15:06:14.758 [main] Board - New Game
+[INFO ] 2025-06-07 15:39:04.996 [main] Board - New Game
+[INFO ] 2025-06-07 15:41:31.501 [main] Board - New Game
+[INFO ] 2025-06-07 15:44:09.645 [main] Board - New Game
+[INFO ] 2025-06-07 15:44:09.649 [main] Board - New Game
+[INFO ] 2025-06-07 15:44:25.751 [main] Board - New Game
+[INFO ] 2025-06-07 15:44:36.603 [AWT-EventQueue-0] Board - ♙ from D2 to D4
+[INFO ] 2025-06-07 15:45:11.804 [AWT-EventQueue-0] Board - ♞ from G8 to F6
+[INFO ] 2025-06-07 15:45:19.742 [AWT-EventQueue-0] Board - ♙ from D4 to D5
+[INFO ] 2025-06-07 15:45:21.701 [AWT-EventQueue-0] Board - ♞ from F6 to D5
+[INFO ] 2025-06-07 15:45:24.900 [AWT-EventQueue-0] Board - ♙ from E2 to E4
+[INFO ] 2025-06-07 15:45:26.388 [AWT-EventQueue-0] Board - ♟ from G7 to G5
+[INFO ] 2025-06-07 15:45:27.517 [AWT-EventQueue-0] Board - ♙ from E4 to D5
+[INFO ] 2025-06-07 15:45:29.868 [AWT-EventQueue-0] Board - ♟ from D7 to D6
+[INFO ] 2025-06-07 15:45:41.178 [AWT-EventQueue-0] Board - ♕ from D1 to G4
+[INFO ] 2025-06-07 15:45:48.704 [AWT-EventQueue-0] Board - ♝ from F8 to H6
+[INFO ] 2025-06-07 15:45:54.097 [AWT-EventQueue-0] Board - ♕ from G4 to D7
+[INFO ] 2025-06-07 15:45:59.384 [AWT-EventQueue-0] Board - ♟ from B7 to B6
+[INFO ] 2025-06-07 15:46:01.461 [AWT-EventQueue-0] Board - ♕ from D7 to E8
+[INFO ] 2025-06-07 15:46:08.067 [AWT-EventQueue-0] Board - ♟ from F7 to F6
+[INFO ] 2025-06-07 15:47:44.831 [main] Board - New Game
+[INFO ] 2025-06-07 15:47:50.518 [AWT-EventQueue-0] Board - ♙ from D2 to D4
+[INFO ] 2025-06-07 15:47:53.998 [AWT-EventQueue-0] Board - ♟ from D7 to D5
+[INFO ] 2025-06-07 15:47:57.484 [AWT-EventQueue-0] Board - ♙ from E2 to E3
+[INFO ] 2025-06-07 15:48:00.140 [AWT-EventQueue-0] Board - ♟ from E7 to E5
+[INFO ] 2025-06-07 15:48:03.844 [AWT-EventQueue-0] Board - ♙ from D4 to E5
+[INFO ] 2025-06-07 15:51:07.328 [main] Board - New Game
+[INFO ] 2025-06-07 15:51:11.044 [AWT-EventQueue-0] Board - ♙ from D2 to D4
+[INFO ] 2025-06-07 15:51:14.301 [AWT-EventQueue-0] Board - ♟ from D7 to D5
+[INFO ] 2025-06-07 20:21:58.946 [main] Board - New Game
+[INFO ] 2025-06-07 20:22:02.712 [AWT-EventQueue-0] Board - ♙ from E2 to E4
+[INFO ] 2025-06-07 20:22:08.023 [AWT-EventQueue-0] Board - ♟ from E7 to E5
+[INFO ] 2025-06-07 20:22:13.093 [AWT-EventQueue-0] Board - ♙ from F2 to F3
+[INFO ] 2025-06-07 15:48:51.417 [main] Board - New Game
+[INFO ] 2025-06-07 15:49:32.466 [main] Board - New Game
+[INFO ] 2025-06-07 15:49:36.162 [AWT-EventQueue-0] Board - ♙ from E2 to E4
+[INFO ] 2025-06-07 15:49:39.702 [AWT-EventQueue-0] Board - ♟ from E7 to E5
+[INFO ] 2025-06-07 15:49:45.964 [AWT-EventQueue-0] Board - ♙ from F2 to F4
+[INFO ] 2025-06-07 15:49:50.043 [AWT-EventQueue-0] Board - ♟ from E5 to F4
+[INFO ] 2025-06-07 15:49:54.896 [AWT-EventQueue-0] Board - ♙ from G2 to G3
+[INFO ] 2025-06-07 15:50:16.602 [main] Board - New Game
+[INFO ] 2025-06-07 15:50:19.173 [AWT-EventQueue-0] Board - ♙ from F2 to F4
+[INFO ] 2025-06-07 15:50:39.663 [main] Board - New Game
+[INFO ] 2025-06-07 15:50:42.342 [AWT-EventQueue-0] Board - ♙ from E2 to E4
+[INFO ] 2025-06-07 15:51:58.614 [main] Board - New Game
+[INFO ] 2025-06-07 15:52:05.503 [AWT-EventQueue-0] Board - ♙ from E2 to E4
+[INFO ] 2025-06-07 15:52:08.526 [AWT-EventQueue-0] Board - ♟ from E7 to E5
+[INFO ] 2025-06-07 15:52:12.042 [AWT-EventQueue-0] Board - ♕ from D1 to G4
+[INFO ] 2025-06-07 15:52:16.388 [AWT-EventQueue-0] Board - ♝ from F8 to C5
+[INFO ] 2025-06-07 15:52:45.950 [main] Board - New Game
+[INFO ] 2025-06-07 15:52:50.488 [AWT-EventQueue-0] Board - ♙ from E2 to E4
+[INFO ] 2025-06-07 15:52:52.432 [AWT-EventQueue-0] Board - ♟ from E7 to E5
+[INFO ] 2025-06-07 15:52:54.169 [AWT-EventQueue-0] Board - ♕ from D1 to G4
+[INFO ] 2025-06-07 15:52:57.366 [AWT-EventQueue-0] Board - ♟ from F7 to F5
+[INFO ] 2025-06-07 15:52:59.333 [AWT-EventQueue-0] Board - ♙ from E4 to F5
+[INFO ] 2025-06-07 15:53:04.977 [AWT-EventQueue-0] Board - ♛ from D8 to H4
+[INFO ] 2025-06-07 15:53:06.603 [AWT-EventQueue-0] Board - ♕ from G4 to G6
+[INFO ] 2025-06-07 15:53:08.986 [AWT-EventQueue-0] Board - ♟ from D7 to D6
+[INFO ] 2025-06-07 15:53:11.474 [AWT-EventQueue-0] Board - ♕ from G6 to E8
+[INFO ] 2025-06-07 15:53:16.197 [AWT-EventQueue-0] Board - ♟ from C7 to C5
+[INFO ] 2025-06-07 15:54:17.445 [main] Board - New Game
+[INFO ] 2025-06-07 15:54:57.199 [main] Board - New Game
+[INFO ] 2025-06-07 15:55:00.914 [AWT-EventQueue-0] Board - ♙ from E2 to E4
+[INFO ] 2025-06-07 15:55:25.979 [main] Board - New Game
+[INFO ] 2025-06-07 15:55:28.830 [AWT-EventQueue-0] Board - ♙ from F2 to F4
+[INFO ] 2025-06-07 15:55:47.872 [main] Board - New Game
+[INFO ] 2025-06-07 15:55:50.229 [AWT-EventQueue-0] Board - ♙ from F2 to F4
+[INFO ] 2025-06-07 15:56:42.623 [main] Board - New Game
+[INFO ] 2025-06-07 15:56:44.876 [AWT-EventQueue-0] Board - ♙ from E2 to E4
+[INFO ] 2025-06-07 15:56:48.559 [AWT-EventQueue-0] Board - ♟ from E7 to E5
+[INFO ] 2025-06-07 15:57:33.515 [main] Board - New Game
+[INFO ] 2025-06-07 15:57:35.846 [AWT-EventQueue-0] Board - ♙ from E2 to E4
+[INFO ] 2025-06-07 15:57:39.270 [AWT-EventQueue-0] Board - ♟ from E7 to E5
+[INFO ] 2025-06-07 15:57:47.530 [AWT-EventQueue-0] Board - ♙ from F2 to F4
+[INFO ] 2025-06-07 15:57:54.494 [AWT-EventQueue-0] Board - ♟ from F7 to F5
+[INFO ] 2025-06-07 16:02:09.656 [main] Board - New Game
+[INFO ] 2025-06-07 16:02:12.797 [AWT-EventQueue-0] Board - ♙ from E2 to E4
+[INFO ] 2025-06-07 16:02:17.369 [AWT-EventQueue-0] Board - ♟ from E7 to E5
+[INFO ] 2025-06-07 16:02:19.076 [AWT-EventQueue-0] Board - ♕ from D1 to G4
+[INFO ] 2025-06-07 16:02:21.678 [AWT-EventQueue-0] Board - ♟ from D7 to D5
+[INFO ] 2025-06-07 16:02:23.229 [AWT-EventQueue-0] Board - ♕ from G4 to E6
+[INFO ] 2025-06-07 16:02:24.446 [AWT-EventQueue-0] Board - ♟ from G7 to G6
+[INFO ] 2025-06-07 16:02:25.705 [AWT-EventQueue-0] Board - ♕ from E6 to E8
+[INFO ] 2025-06-07 16:03:56.561 [main] Board - New Game
+[INFO ] 2025-06-07 16:03:59.912 [AWT-EventQueue-0] Board - ♙ from E2 to E4
+[INFO ] 2025-06-07 16:04:06.474 [AWT-EventQueue-0] Board - ♟ from E7 to E5
+[INFO ] 2025-06-07 16:04:07.980 [AWT-EventQueue-0] Board - ♕ from D1 to G4
+[INFO ] 2025-06-07 16:04:11.051 [AWT-EventQueue-0] Board - ♟ from D7 to D5
+[INFO ] 2025-06-07 16:04:14.122 [AWT-EventQueue-0] Board - ♕ from G4 to E6
+[INFO ] 2025-06-07 16:04:15.820 [AWT-EventQueue-0] Board - ♟ from F7 to F5
+[INFO ] 2025-06-07 16:04:19.178 [AWT-EventQueue-0] Board - ♕ from E6 to E8
+[INFO ] 2025-06-07 16:04:25.354 [AWT-EventQueue-0] Board - New Game
+[INFO ] 2025-06-07 16:06:39.263 [main] Board - New Game
+[INFO ] 2025-06-07 16:06:42.091 [AWT-EventQueue-0] Board - ♙ from E2 to E4
+[INFO ] 2025-06-07 16:06:44.576 [AWT-EventQueue-0] Board - ♟ from E7 to E5
+[INFO ] 2025-06-07 16:06:47.786 [AWT-EventQueue-0] Board - ♕ from D1 to H5
+[INFO ] 2025-06-07 16:06:49.300 [AWT-EventQueue-0] Board - ♟ from F7 to F5
+[INFO ] 2025-06-07 16:06:50.810 [AWT-EventQueue-0] Board - ♕ from H5 to E8
+[INFO ] 2025-06-07 16:06:56.616 [AWT-EventQueue-0] Board - New Game
+[INFO ] 2025-06-07 16:11:27.952 [main] Board - New Game
+[INFO ] 2025-06-07 20:43:54.851 [main] Board - New Game
+[INFO ] 2025-06-07 20:44:00.121 [AWT-EventQueue-0] Board - ♙ from D2 to D4
+[INFO ] 2025-06-07 20:45:53.567 [main] Board - New Game
+[INFO ] 2025-06-07 20:45:57.438 [AWT-EventQueue-0] Board - ♙ from E2 to E4
+[INFO ] 2025-06-07 20:46:02.574 [AWT-EventQueue-0] Board - ♟ from D7 to D5
+[INFO ] 2025-06-07 20:46:07.186 [AWT-EventQueue-0] Board - ♙ from E4 to D5
+[INFO ] 2025-06-07 20:46:23.500 [main] Board - New Game
+[INFO ] 2025-06-07 20:46:34.772 [AWT-EventQueue-0] Board - ♙ from E2 to E4
+[INFO ] 2025-06-07 20:46:46.203 [AWT-EventQueue-0] Board - ♟ from F7 to F5
+[INFO ] 2025-06-07 20:46:50.066 [AWT-EventQueue-0] Board - ♕ from D1 to H5
+[INFO ] 2025-06-07 20:46:54.804 [AWT-EventQueue-0] Board - ♟ from E7 to E6
+[INFO ] 2025-06-07 20:46:58.157 [AWT-EventQueue-0] Board - ♕ from H5 to E8
+[INFO ] 2025-06-07 20:47:04.191 [AWT-EventQueue-0] Board - New Game
+[INFO ] 2025-06-07 20:52:41.743 [main] Board - New Game
+[INFO ] 2025-06-07 20:52:45.321 [AWT-EventQueue-0] Board - ♙ from D2 to D4
+[INFO ] 2025-06-07 20:52:54.463 [AWT-EventQueue-0] Board - ♟ from F7 to F5
+[INFO ] 2025-06-07 20:52:57.230 [AWT-EventQueue-0] Board - ♙ from E2 to E3
+[INFO ] 2025-06-07 20:53:01.047 [AWT-EventQueue-0] Board - ♟ from E7 to E6
+[INFO ] 2025-06-07 20:53:04.288 [AWT-EventQueue-0] Board - ♕ from D1 to H5
+[INFO ] 2025-06-07 20:53:11.007 [AWT-EventQueue-0] Board - ♟ from F5 to F4
+[INFO ] 2025-06-07 20:53:13.594 [AWT-EventQueue-0] Board - ♕ from H5 to E8
+[INFO ] 2025-06-07 20:54:22.270 [main] Board - New Game
+[INFO ] 2025-06-07 20:54:27.441 [AWT-EventQueue-0] Board - ♙ from D2 to D4
+[INFO ] 2025-06-07 20:54:30.292 [AWT-EventQueue-0] Board - ♟ from D7 to D5
+[INFO ] 2025-06-07 20:54:32.428 [AWT-EventQueue-0] Board - ♙ from E2 to E4
+[INFO ] 2025-06-07 20:54:36.088 [AWT-EventQueue-0] Board - ♟ from F7 to F5
+[INFO ] 2025-06-07 20:54:38.316 [AWT-EventQueue-0] Board - ♕ from D1 to H5
+[INFO ] 2025-06-07 20:54:41.819 [AWT-EventQueue-0] Board - ♟ from E7 to E6
+[INFO ] 2025-06-07 20:54:44.046 [AWT-EventQueue-0] Board - ♕ from H5 to E8
+[INFO ] 2025-06-07 20:59:14.359 [main] Board - New Game
+[INFO ] 2025-06-07 20:59:42.467 [main] Board - New Game
+[INFO ] 2025-06-07 20:59:45.919 [AWT-EventQueue-0] Board - ♙ from D2 to D4
+[INFO ] 2025-06-07 20:59:49.975 [AWT-EventQueue-0] Board - ♟ from E7 to E5
+[INFO ] 2025-06-07 21:01:03.595 [main] Board - New Game
+[INFO ] 2025-06-07 21:01:57.799 [main] Board - New Game
+[INFO ] 2025-06-07 21:02:01.796 [AWT-EventQueue-0] Board - ♙ from D2 to D4
+[INFO ] 2025-06-07 21:09:12.377 [main] Board - New Game
+[INFO ] 2025-06-07 21:09:16.321 [AWT-EventQueue-0] Board - ♙ from D2 to D4
+[INFO ] 2025-06-07 21:09:25.755 [AWT-EventQueue-0] Board - ♟ from F7 to F5
+[INFO ] 2025-06-07 21:09:29.594 [AWT-EventQueue-0] Board - ♙ from E2 to E3
+[INFO ] 2025-06-07 21:09:32.722 [AWT-EventQueue-0] Board - ♟ from D7 to D5
+[INFO ] 2025-06-07 21:09:35.384 [AWT-EventQueue-0] Board - ♕ from D1 to H5
+[INFO ] 2025-06-07 21:09:39.517 [AWT-EventQueue-0] Board - ♟ from E7 to E5
+[INFO ] 2025-06-07 21:09:42.120 [AWT-EventQueue-0] Board - ♕ from H5 to E8
+[INFO ] 2025-06-07 21:09:45.188 [AWT-EventQueue-0] Board - New Game
+[INFO ] 2025-06-07 21:14:57.975 [main] Board - New Game
+[INFO ] 2025-06-07 21:15:04.271 [AWT-EventQueue-0] Board - ♙ from D2 to D4
+[INFO ] 2025-06-07 21:15:14.276 [AWT-EventQueue-0] Board - ♟ from D7 to D5
+[INFO ] 2025-06-07 21:15:20.582 [AWT-EventQueue-0] Board - ♙ from E2 to E3
+[INFO ] 2025-06-07 21:17:59.093 [main] Board - New Game
+[INFO ] 2025-06-07 21:18:02.765 [AWT-EventQueue-0] Board - ♙ from D2 to D4
+[INFO ] 2025-06-07 21:18:06.553 [AWT-EventQueue-0] Board - ♟ from E7 to E5
+[INFO ] 2025-06-07 21:18:11.937 [AWT-EventQueue-0] Board - ♙ from E2 to E3
+[INFO ] 2025-06-07 21:18:15.559 [AWT-EventQueue-0] Board - ♟ from E5 to D4
+[INFO ] 2025-06-07 21:18:20.802 [AWT-EventQueue-0] Board - ♕ from D1 to H5
+[INFO ] 2025-06-07 21:18:24.829 [AWT-EventQueue-0] Board - ♟ from F7 to F5
+[INFO ] 2025-06-07 21:18:27.762 [AWT-EventQueue-0] Board - ♕ from H5 to E8
+[INFO ] 2025-06-07 21:20:05.473 [main] Board - New Game
+[INFO ] 2025-06-07 21:20:13.478 [AWT-EventQueue-0] Board - ♙ from E2 to E4
+[INFO ] 2025-06-07 21:20:20.774 [AWT-EventQueue-0] Board - ♟ from F7 to F5
+[INFO ] 2025-06-07 21:20:26.060 [AWT-EventQueue-0] Board - ♕ from D1 to H5
+[INFO ] 2025-06-07 21:20:29.083 [AWT-EventQueue-0] Board - ♟ from F5 to E4
+[INFO ] 2025-06-07 21:20:31.521 [AWT-EventQueue-0] Board - ♕ from H5 to E8
+[INFO ] 2025-06-07 21:23:58.105 [main] Board - New Game
+[INFO ] 2025-06-07 21:24:04.569 [AWT-EventQueue-0] Board - ♙ from E2 to E4
+[INFO ] 2025-06-07 21:24:09.090 [AWT-EventQueue-0] Board - ♟ from F7 to F5
+[INFO ] 2025-06-07 21:24:12.084 [AWT-EventQueue-0] Board - ♕ from D1 to H5
+[INFO ] 2025-06-07 21:24:16.980 [AWT-EventQueue-0] Board - ♟ from F5 to E4
+[INFO ] 2025-06-07 21:24:19.830 [AWT-EventQueue-0] Board - ♕ from H5 to E8
+[INFO ] 2025-06-08 15:44:29.668 [main] Board - New Game
+[INFO ] 2025-06-08 15:45:52.679 [AWT-EventQueue-0] Board - ♙ from E2 to E4
+[INFO ] 2025-06-08 15:45:54.591 [AWT-EventQueue-0] Board - ♟ from F7 to F5
+[INFO ] 2025-06-08 15:45:55.803 [AWT-EventQueue-0] Board - ♕ from D1 to H5
+[INFO ] 2025-06-08 15:45:56.925 [AWT-EventQueue-0] Board - ♟ from E7 to E5
+[INFO ] 2025-06-08 15:45:58.041 [AWT-EventQueue-0] Board - ♕ from H5 to E8
+[INFO ] 2025-06-08 15:49:13.126 [main] Board - New Game
+[INFO ] 2025-06-08 15:57:08.708 [main] Board - New Game
+[INFO ] 2025-06-08 15:57:22.375 [main] Board - New Game
+[INFO ] 2025-06-08 15:57:24.918 [AWT-EventQueue-0] Board - ♙ from E2 to E4
+[INFO ] 2025-06-08 15:57:26.681 [AWT-EventQueue-0] Board - ♟ from F7 to F5
+[INFO ] 2025-06-08 15:57:27.949 [AWT-EventQueue-0] Board - ♕ from D1 to H5
+[INFO ] 2025-06-08 15:57:30.705 [AWT-EventQueue-0] Board - ♟ from E7 to E5
+[INFO ] 2025-06-08 15:57:32.020 [AWT-EventQueue-0] Board - ♕ from H5 to E8
+[INFO ] 2025-06-08 15:59:44.297 [main] Board - New Game
+[INFO ] 2025-06-08 15:59:47.394 [AWT-EventQueue-0] Board - ♙ from E2 to E4
+[INFO ] 2025-06-08 15:59:51.898 [AWT-EventQueue-0] Board - ♟ from F7 to F5
+[INFO ] 2025-06-08 15:59:53.534 [AWT-EventQueue-0] Board - ♕ from D1 to H5
+[INFO ] 2025-06-08 15:59:55.331 [AWT-EventQueue-0] Board - ♟ from E7 to E6
+[INFO ] 2025-06-08 15:59:56.743 [AWT-EventQueue-0] Board - ♕ from H5 to E8
+[INFO ] 2025-06-08 16:00:43.198 [main] Board - New Game
+[INFO ] 2025-06-08 16:00:46.053 [AWT-EventQueue-0] Board - ♙ from E2 to E4
+[INFO ] 2025-06-08 16:00:47.070 [AWT-EventQueue-0] Board - ♟ from E7 to E5
+[INFO ] 2025-06-08 16:00:50.874 [AWT-EventQueue-0] Board - ♕ from D1 to H5
+[INFO ] 2025-06-08 16:00:52.114 [AWT-EventQueue-0] Board - ♟ from F7 to F6
+[INFO ] 2025-06-08 16:00:54.564 [AWT-EventQueue-0] Board - ♕ from H5 to E8
+[INFO ] 2025-06-08 16:02:34.958 [main] Board - New Game
+[INFO ] 2025-06-08 16:02:37.260 [AWT-EventQueue-0] Board - ♙ from E2 to E4
+[INFO ] 2025-06-08 16:02:41.157 [AWT-EventQueue-0] Board - ♟ from E7 to E5
+[INFO ] 2025-06-08 16:02:42.833 [AWT-EventQueue-0] Board - ♕ from D1 to G4
+[INFO ] 2025-06-08 16:02:45.748 [AWT-EventQueue-0] Board - ♟ from F7 to F6
+[INFO ] 2025-06-08 16:02:48.372 [AWT-EventQueue-0] Board - ♕ from G4 to H5
+[INFO ] 2025-06-08 16:02:49.628 [AWT-EventQueue-0] Board - ♛ from D8 to E7
+[INFO ] 2025-06-08 16:02:51.303 [AWT-EventQueue-0] Board - ♕ from H5 to E8
+[INFO ] 2025-06-08 16:05:12.580 [main] Board - New Game
+[INFO ] 2025-06-08 16:06:13.955 [main] Board - New Game
+[INFO ] 2025-06-08 16:06:55.145 [main] Board - New Game
+[INFO ] 2025-06-08 16:08:11.018 [main] Board - New Game
+[INFO ] 2025-06-08 16:40:42.944 [main] Board - New Game
+[INFO ] 2025-06-08 16:43:52.634 [main] Board - New Game
+[INFO ] 2025-06-08 17:05:40.060 [main] Board - New Game
+[INFO ] 2025-06-08 17:05:42.575 [main] Board - New Game
+[INFO ] 2025-06-08 17:05:45.708 [main] Board - New Game
+[INFO ] 2025-06-08 17:07:05.710 [main] Board - New Game
+[INFO ] 2025-06-08 17:07:10.106 [AWT-EventQueue-0] Board - ♙ from E2 to E4
+[INFO ] 2025-06-08 17:09:15.651 [main] Board - New Game
+[INFO ] 2025-06-08 17:09:19.585 [AWT-EventQueue-0] Board - ♙ from E2 to E4
+[INFO ] 2025-06-08 17:09:29.307 [main] Board - New Game
+[INFO ] 2025-06-08 17:12:06.581 [main] Board - New Game
+[INFO ] 2025-06-08 17:12:16.017 [AWT-EventQueue-0] Board - ♙ from E2 to E4
+[INFO ] 2025-06-08 17:12:57.843 [main] Board - New Game
+[INFO ] 2025-06-08 17:13:26.926 [main] Board - New Game
+[INFO ] 2025-06-08 17:13:31.314 [AWT-EventQueue-0] Board - ♙ from E2 to E4
+[INFO ] 2025-06-08 17:13:36.645 [AWT-EventQueue-0] Board - ♟ from F7 to F5
+[INFO ] 2025-06-08 17:13:39.825 [AWT-EventQueue-0] Board - ♕ from D1 to H5
+[INFO ] 2025-06-08 17:13:41.148 [AWT-EventQueue-0] Board - ♟ from E7 to E6
+[INFO ] 2025-06-08 17:13:42.652 [AWT-EventQueue-0] Board - ♕ from H5 to E8
+[INFO ] 2025-06-08 17:13:59.242 [main] Board - New Game
+[INFO ] 2025-06-08 17:14:43.415 [main] Board - New Game
+[INFO ] 2025-06-08 17:14:46.939 [AWT-EventQueue-0] Board - ♙ from E2 to E4
+[INFO ] 2025-06-08 17:14:50.604 [AWT-EventQueue-0] Board - ♟ from F7 to F5
+[INFO ] 2025-06-08 17:14:52.228 [AWT-EventQueue-0] Board - ♕ from D1 to H5
+[INFO ] 2025-06-08 17:14:53.835 [AWT-EventQueue-0] Board - ♟ from E7 to E6
+[INFO ] 2025-06-08 17:14:55.263 [AWT-EventQueue-0] Board - ♕ from H5 to E8
+[INFO ] 2025-06-08 17:17:10.186 [main] Board - New Game
+[INFO ] 2025-06-08 17:17:32.122 [main] Board - New Game
+[INFO ] 2025-06-08 17:18:29.348 [main] Board - New Game
+[INFO ] 2025-06-08 17:23:15.404 [main] Board - New Game
+[INFO ] 2025-06-08 17:23:17.862 [main] Board - New Game
+[INFO ] 2025-06-08 17:23:25.557 [AWT-EventQueue-0] Board - ♙ from E2 to E4
+[INFO ] 2025-06-08 17:23:33.476 [AWT-EventQueue-0] Board - ♟ from E7 to E5
+[INFO ] 2025-06-08 17:23:40.208 [main] Board - New Game
+[INFO ] 2025-06-08 17:23:45.707 [AWT-EventQueue-0] Board - ♙ from E2 to E4
+[INFO ] 2025-06-08 17:24:06.485 [main] Board - New Game
+[INFO ] 2025-06-08 17:24:34.953 [main] Board - New Game
+[INFO ] 2025-06-08 17:24:38.954 [AWT-EventQueue-0] Board - ♙ from F2 to F4
+[INFO ] 2025-06-08 17:24:42.441 [main] Board - New Game
+[INFO ] 2025-06-08 17:30:12.370 [main] Board - New Game
+[INFO ] 2025-06-08 17:30:19.359 [AWT-EventQueue-0] Board - ♙ from E2 to E4
+[INFO ] 2025-06-08 17:30:23.066 [AWT-EventQueue-0] Board - ♟ from E7 to E5
+[INFO ] 2025-06-08 17:30:24.635 [AWT-EventQueue-0] Board - ♕ from D1 to H5
+[INFO ] 2025-06-08 17:30:25.968 [AWT-EventQueue-0] Board - ♟ from F7 to F5
+[INFO ] 2025-06-08 17:30:27.347 [AWT-EventQueue-0] Board - ♕ from H5 to E8
+[INFO ] 2025-06-08 17:33:31.656 [main] Board - New Game
+[INFO ] 2025-06-08 17:33:34.846 [AWT-EventQueue-0] Board - ♙ from E2 to E4
+[INFO ] 2025-06-08 17:33:38.678 [main] Board - New Game
+[INFO ] 2025-06-08 17:33:44.035 [AWT-EventQueue-0] Board - ♙ from E2 to E4
+[INFO ] 2025-06-08 17:34:25.727 [main] Board - New Game
+[INFO ] 2025-06-08 17:34:27.380 [main] Board - New Game
+[INFO ] 2025-06-08 17:34:33.068 [AWT-EventQueue-0] Board - ♙ from E2 to E4
+[INFO ] 2025-06-08 17:34:41.160 [AWT-EventQueue-0] Board - ♟ from E7 to E5
+[INFO ] 2025-06-08 17:34:52.274 [main] Board - New Game
+[INFO ] 2025-06-08 17:35:09.450 [AWT-EventQueue-0] Board - ♙ from D2 to D4
+[INFO ] 2025-06-08 17:35:11.341 [AWT-EventQueue-0] Board - ♟ from E5 to D4
+[INFO ] 2025-06-08 17:35:15.089 [main] Board - New Game
+[INFO ] 2025-06-08 17:36:18.987 [main] Board - New Game
+[INFO ] 2025-06-08 17:36:29.081 [main] Board - New Game
+[INFO ] 2025-06-08 17:36:32.931 [AWT-EventQueue-0] Board - ♙ from E2 to E4
+[INFO ] 2025-06-08 17:36:35.109 [AWT-EventQueue-0] Board - ♟ from E7 to E5
+[INFO ] 2025-06-08 17:36:36.840 [AWT-EventQueue-0] Board - ♕ from D1 to G4
+[INFO ] 2025-06-08 17:36:39.112 [AWT-EventQueue-0] Board - ♟ from D7 to D6
+[INFO ] 2025-06-08 17:36:44.069 [AWT-EventQueue-0] Board - ♕ from G4 to C8
+[INFO ] 2025-06-08 17:36:47.451 [main] Board - New Game
+[INFO ] 2025-06-08 17:37:39.989 [main] Board - New Game
+[INFO ] 2025-06-08 17:37:45.430 [AWT-EventQueue-0] Board - ♙ from E2 to E4
+[INFO ] 2025-06-08 17:37:48.411 [AWT-EventQueue-0] Board - ♟ from D7 to D5
+[INFO ] 2025-06-08 17:37:50.402 [AWT-EventQueue-0] Board - ♕ from D1 to H5
+[INFO ] 2025-06-08 17:37:51.929 [AWT-EventQueue-0] Board - ♟ from F7 to F5
+[INFO ] 2025-06-08 17:37:54.017 [AWT-EventQueue-0] Board - ♕ from H5 to E8
+[INFO ] 2025-06-08 17:37:56.118 [AWT-EventQueue-0] Board - New Game
+[INFO ] 2025-06-08 17:38:08.048 [AWT-EventQueue-0] Board - ♟ from E7 to E5
+[INFO ] 2025-06-08 17:38:46.226 [main] Board - New Game
+[INFO ] 2025-06-08 17:38:52.696 [AWT-EventQueue-0] Board - ♙ from E2 to E4
+[INFO ] 2025-06-08 17:38:55.127 [AWT-EventQueue-0] Board - ♟ from E7 to E5
+[INFO ] 2025-06-08 17:38:57.121 [AWT-EventQueue-0] Board - ♕ from D1 to H5
+[INFO ] 2025-06-08 17:38:58.770 [AWT-EventQueue-0] Board - ♟ from F7 to F5
+[INFO ] 2025-06-08 17:39:00.507 [AWT-EventQueue-0] Board - ♕ from H5 to E8
+[INFO ] 2025-06-08 17:39:02.523 [AWT-EventQueue-0] Board - New Game
+[INFO ] 2025-06-08 17:39:07.992 [AWT-EventQueue-0] Board - ♟ from E7 to E5
+[INFO ] 2025-06-08 17:39:53.211 [main] Board - New Game
+[INFO ] 2025-06-08 17:39:56.646 [AWT-EventQueue-0] Board - ♙ from F2 to F4
+[INFO ] 2025-06-08 17:39:58.646 [AWT-EventQueue-0] Board - ♟ from E7 to E5
+[INFO ] 2025-06-08 17:39:59.969 [AWT-EventQueue-0] Board - ♙ from E2 to E4
+[INFO ] 2025-06-08 17:40:01.552 [AWT-EventQueue-0] Board - ♟ from D7 to D5
+[INFO ] 2025-06-08 17:40:04.471 [AWT-EventQueue-0] Board - ♕ from D1 to H5
+[INFO ] 2025-06-08 17:40:05.911 [AWT-EventQueue-0] Board - ♟ from F7 to F5
+[INFO ] 2025-06-08 17:40:07.585 [AWT-EventQueue-0] Board - ♕ from H5 to E8
+[INFO ] 2025-06-08 17:40:09.168 [AWT-EventQueue-0] Board - New Game
+[INFO ] 2025-06-08 17:40:11.405 [AWT-EventQueue-0] Board - ♙ from E2 to E4
+[INFO ] 2025-06-08 17:41:19.218 [main] Board - New Game
+[INFO ] 2025-06-08 17:41:26.721 [AWT-EventQueue-0] Board - ♙ from E2 to E4
+[INFO ] 2025-06-08 17:41:29.909 [AWT-EventQueue-0] Board - ♟ from E7 to E5
+[INFO ] 2025-06-08 17:41:40.157 [main] Board - New Game
+[INFO ] 2025-06-08 17:41:47.395 [AWT-EventQueue-0] Board - ♙ from F2 to F4
+[INFO ] 2025-06-08 17:41:55.604 [main] Board - New Game
+[INFO ] 2025-06-08 17:45:25.456 [main] Board - New Game
+[INFO ] 2025-06-08 17:46:14.493 [main] Board - New Game
+[INFO ] 2025-06-08 17:46:17.767 [AWT-EventQueue-0] Board - ♙ from E2 to E4
+[INFO ] 2025-06-08 17:46:21.909 [main] Board - New Game
+[INFO ] 2025-06-08 17:46:26.666 [AWT-EventQueue-0] Board - ♟ from E7 to E5
+[INFO ] 2025-06-08 17:46:31.169 [main] Board - New Game
+[INFO ] 2025-06-08 18:41:12.975 [main] Board - New Game

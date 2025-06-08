@@ -1,8 +1,11 @@
 import chess.core.GameManager;
+import chess.core.PieceColor;
 import chess.core.Serialization;
 import chess.core.XML;
 import chess.userinterface.ChessBoardUI;
 import chess.userinterface.ConsoleInterface;
+
+import java.util.Scanner;
 
 public class Main {
     private static void checkForLeavingGame(String string, ConsoleInterface console) {
@@ -14,7 +17,8 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        ChessBoardUI chessBoardUI = new ChessBoardUI(new GameManager());
+        // CÓDIGO DO TABULEIRO GUI
+         ChessBoardUI chessBoardUI = new ChessBoardUI(new GameManager());
 
         // CÓDIGO DO TABULEIRO ASCII
 //        ConsoleInterface console;
@@ -22,7 +26,7 @@ public class Main {
 //
 //        System.out.println("Deseja continuar o último jogo? (S/N)");
 //        String option = keyboard.nextLine();
-//        if (option.equalsIgnoreCase("S") && Serialization.fileExists()) console = Serialization.loadBoard();
+//        if (option.equalsIgnoreCase("S") && Serialization.fileExists()) console = Serialization.loadBoardConsole();
 //        else {
 //            System.out.println("Não existe nenhum jogo guardado. Um jogo novo será carregado.");
 //            console = new ConsoleInterface();
